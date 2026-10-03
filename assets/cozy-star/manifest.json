@@ -1,16 +1,20 @@
 {
   "repository": "https://github.com/kot3505/cozy-star-tilda",
   "assets": {
-    "marqueeIcons": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/marquee-icons.png",
-    "detailIcons": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/detail-icons.png",
-    "protectedStar3d": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/protected-star-3d.png",
-    "oneSizeGuideRu": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/one-size-guide-ru.png",
-    "galleryColors": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/gallery-colors.png",
-    "galleryPink": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/gallery-pink.png",
-    "galleryBlue": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/gallery-blue.png",
-    "galleryBabyBlue": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/gallery-baby-blue.png",
-    "reviewAvatarAnna": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/review-avatar-anna.png",
-    "reviewAvatarElena": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/review-avatar-elena.png",
-    "reviewAvatarIrina": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/review-avatar-irina.png"
+    "marqueeIcons": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/marquee-icons.webp",
+    "detailIcons": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/detail-icons.webp",
+    "protectedStar3d": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/protected-star-3d.webp",
+    "oneSizeGuideRu": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/one-size-guide-ru.webp",
+    "galleryColors": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/gallery-colors.webp",
+    "galleryPink": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/gallery-pink.webp",
+    "galleryBlue": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/gallery-blue.webp",
+    "galleryBabyBlue": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/gallery-baby-blue.webp",
+    "galleryColorsThumb": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/gallery-colors-thumb.webp",
+    "galleryPinkThumb": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/gallery-pink-thumb.webp",
+    "galleryBlueThumb": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/gallery-blue-thumb.webp",
+    "galleryBabyBlueThumb": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/gallery-baby-blue-thumb.webp",
+    "reviewAvatarAnna": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/review-avatar-anna.webp",
+    "reviewAvatarElena": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/review-avatar-elena.webp",
+    "reviewAvatarIrina": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/review-avatar-irina.webp"
   }
 }
