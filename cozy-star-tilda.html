@@ -1,0 +1,3238 @@
+<style>
+.cozystar-page,
+.cozystar-page * {
+  box-sizing: border-box;
+}
+
+.cozystar-page {
+  --cozystar-container: 1300px;
+  --cozystar-pad: 40px;
+  --cozystar-gap: 40px;
+  --cozystar-ink: #392d29;
+  --cozystar-muted: #786d69;
+  --cozystar-pink: #d88ba1;
+  --cozystar-pink-soft: #f9e2e8;
+  --cozystar-pink-pale: #fff6f4;
+  --cozystar-brown: #382b27;
+  --cozystar-gold: #ffca05;
+  --cozystar-orange: #ffa619;
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  max-width: none;
+  margin-left: -50vw;
+  overflow: clip;
+  color: var(--cozystar-ink);
+  background: #fff;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+}
+
+.cozystar-svg-sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.cozystar-icon {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  flex: 0 0 auto;
+  fill: currentColor;
+  vertical-align: -.12em;
+}
+
+.cozystar-page__container {
+  width: min(calc(100% - 2 * var(--cozystar-pad)), var(--cozystar-container));
+  margin-inline: auto;
+}
+
+.cozystar-page button,
+.cozystar-page select,
+.cozystar-page input {
+  font: inherit;
+}
+
+.cozystar-page button,
+.cozystar-page a,
+.cozystar-page select,
+.cozystar-page input,
+.cozystar-page summary {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cozystar-page button:focus-visible,
+.cozystar-page a:focus-visible,
+.cozystar-page select:focus-visible,
+.cozystar-page input:focus-visible,
+.cozystar-page summary:focus-visible {
+  outline: 3px solid #3c76ff;
+  outline-offset: 3px;
+}
+
+.cozystar-page__offerbar {
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 8px var(--cozystar-pad);
+  color: #fff;
+  background: var(--cozystar-brown);
+  text-align: center;
+  font-weight: 800;
+}
+
+.cozystar-page__offerbar-text {
+  margin: 0;
+}
+
+.cozystar-page__offerbar-mobile {
+  display: none;
+}
+
+.cozystar-countdown {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+.cozystar-countdown__part {
+  display: grid;
+  line-height: 1;
+}
+
+.cozystar-countdown__value {
+  font-size: 22px;
+  letter-spacing: 2px;
+}
+
+.cozystar-countdown__label {
+  margin-top: 4px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.cozystar-marquee {
+  width: 100%;
+  overflow: hidden;
+  color: #fff;
+  background: var(--cozystar-pink);
+}
+
+.cozystar-marquee__track {
+  display: flex;
+  width: max-content;
+  min-width: 200%;
+  animation: cozystar-marquee 22s linear infinite;
+}
+
+.cozystar-marquee__group {
+  display: flex;
+  flex: 0 0 50%;
+  justify-content: space-around;
+  gap: 30px;
+  padding: 11px 20px;
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: .4px;
+  white-space: nowrap;
+}
+
+@keyframes cozystar-marquee {
+  to { transform: translateX(-50%); }
+}
+
+.cozystar-header {
+  border-bottom: 1px solid #eee8e6;
+  background: #fff;
+}
+
+.cozystar-header__inner {
+  min-height: 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cozystar-header__nav,
+.cozystar-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.cozystar-header__actions {
+  justify-content: flex-end;
+}
+
+.cozystar-header__link {
+  color: var(--cozystar-ink);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color .2s ease, opacity .2s ease;
+}
+
+.cozystar-header__icon {
+  width: 44px;
+  height: 44px;
+  display: inline-grid;
+  place-items: center;
+  border: 0;
+  padding: 0;
+  color: var(--cozystar-ink);
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color .2s ease, background-color .2s ease, box-shadow .2s ease;
+}
+
+.cozystar-header__icon svg {
+  width: 23px;
+  height: 23px;
+}
+
+.cozystar-header__menu {
+  display: none;
+}
+
+.cozystar-product {
+  padding: 24px 0;
+}
+
+.cozystar-product__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(420px, 5fr);
+  gap: var(--cozystar-gap);
+  align-items: start;
+}
+
+.cozystar-gallery,
+.cozystar-buybox {
+  min-width: 0;
+}
+
+.cozystar-gallery {
+  position: sticky;
+  top: 16px;
+  align-self: start;
+}
+
+.cozystar-gallery__stage {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  background: #f7f7f7;
+}
+
+.cozystar-gallery__main {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cozystar-gallery__thumbs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.cozystar-gallery__thumb {
+  min-width: 0;
+  aspect-ratio: 1 / .78;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 0;
+  overflow: hidden;
+  background: #f5f5f5;
+  cursor: pointer;
+  transition: border-color .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+.cozystar-gallery__thumb[aria-selected="true"] {
+  border-color: var(--cozystar-ink);
+}
+
+.cozystar-gallery__thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cozystar-buybox__rating,
+.cozystar-reviews__rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--cozystar-ink);
+  font-size: 14px;
+}
+
+.cozystar-buybox__stars,
+.cozystar-review__stars,
+.cozystar-testimonial__stars,
+.cozystar-reviews__stars {
+  color: var(--cozystar-gold);
+  letter-spacing: 1px;
+}
+
+.cozystar-buybox__title {
+  margin: 6px 0 16px;
+  font-size: clamp(34px, 3vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  font-weight: 900;
+  text-wrap: balance;
+}
+
+.cozystar-buybox__divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-weight: 800;
+  font-size: 14px;
+  min-width: 0;
+  max-width: 100%;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.cozystar-buybox__divider::before,
+.cozystar-buybox__divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #efc8d2;
+}
+
+.cozystar-bundles {
+  display: grid;
+  gap: 10px;
+}
+
+.cozystar-bundle {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px;
+  align-items: start;
+  min-width: 0;
+  border: 2px solid #e9cbd2;
+  border-radius: 9px;
+  padding: 17px 17px 15px;
+  background: var(--cozystar-pink-pale);
+  cursor: pointer;
+  transition: border-color .2s ease, background-color .2s ease, box-shadow .2s ease;
+}
+
+.cozystar-bundle.is-selected {
+  border-color: var(--cozystar-pink);
+  background: var(--cozystar-pink-soft);
+}
+
+.cozystar-bundle__radio,
+.cozystar-choice__radio,
+.cozystar-delivery__radio {
+  width: 22px;
+  height: 22px;
+  margin: 3px 0 0;
+  accent-color: var(--cozystar-pink);
+  cursor: pointer;
+  flex: 0 0 22px;
+}
+
+.cozystar-bundle__radio {
+  -webkit-appearance: none;
+  appearance: none;
+  border: 2px solid #d9c7cc;
+  border-radius: 50%;
+  outline: none;
+  background: #fff;
+  box-shadow: none;
+}
+
+.cozystar-bundle__radio:checked {
+  border-color: var(--cozystar-pink);
+  background: var(--cozystar-pink);
+}
+
+.cozystar-bundle__radio:focus-visible {
+  outline: 2px solid rgba(215, 127, 154, .34);
+  outline-offset: 3px;
+}
+
+.cozystar-bundle__body {
+  min-width: 0;
+}
+
+.cozystar-bundle__title {
+  display: block;
+  font-size: 19px;
+  line-height: 1.2;
+  font-weight: 900;
+  overflow-wrap: anywhere;
+}
+
+.cozystar-bundle__note {
+  display: block;
+  margin-top: 2px;
+  color: var(--cozystar-muted);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.cozystar-bundle__price {
+  min-width: 84px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.cozystar-bundle__new {
+  display: block;
+  font-size: 20px;
+  line-height: 1.15;
+  font-weight: 900;
+}
+
+.cozystar-bundle__old {
+  display: block;
+  color: #a99e9a;
+  font-size: 12px;
+  text-decoration: line-through;
+}
+
+.cozystar-bundle__badge {
+  position: absolute;
+  top: -10px;
+  right: 16px;
+  border-radius: 6px 6px 0 0;
+  padding: 3px 9px;
+  color: #fff;
+  background: var(--cozystar-pink);
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  max-width: calc(100% - 32px);
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.cozystar-bundle__perks {
+  grid-column: 2 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 16px;
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.cozystar-bundle__perks span {
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  overflow-wrap: anywhere;
+}
+
+.cozystar-bundle__perks .cozystar-icon {
+  width: 15px;
+  height: 15px;
+}
+
+.cozystar-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 18px 0;
+}
+
+.cozystar-options__group {
+  min-width: 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.cozystar-options__legend {
+  margin-bottom: 8px;
+  padding: 0;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.cozystar-options__choices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.cozystar-choice {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 0;
+  min-height: 58px;
+  border: 1px solid #e4ddda;
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: #fff;
+  cursor: pointer;
+  transition: border-color .2s ease, background-color .2s ease, box-shadow .2s ease;
+}
+
+.cozystar-choice__radio {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.cozystar-choice:has(.cozystar-choice__radio:checked) {
+  border-color: var(--cozystar-pink);
+  box-shadow: inset 0 0 0 1px var(--cozystar-pink);
+  background: #fff8fa;
+}
+
+.cozystar-choice:has(.cozystar-choice__radio:focus-visible) {
+  outline: 3px solid rgba(231, 130, 154, .24);
+  outline-offset: 2px;
+}
+
+.cozystar-choice__swatch {
+  position: relative;
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px #d8ceca;
+}
+
+.cozystar-choice__swatch::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  width: 8px;
+  height: 4px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  transition: opacity .18s ease;
+}
+
+.cozystar-choice:has(.cozystar-choice__radio:checked) .cozystar-choice__swatch::after {
+  opacity: 1;
+}
+
+.cozystar-choice__swatch--pink { background: #eda5b5; }
+.cozystar-choice__swatch--blue { background: #9fccec; }
+
+.cozystar-choice__text {
+  min-width: 0;
+  max-width: 100%;
+  flex: 1 1 auto;
+  font-size: 14px;
+  line-height: 1.15;
+  font-weight: 800;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.cozystar-size-select {
+  width: 100%;
+  min-height: 50px;
+  border: 1px solid #e4ddda;
+  border-radius: 8px;
+  padding: 0 38px 0 12px;
+  color: var(--cozystar-ink);
+  background: #fff;
+  cursor: pointer;
+}
+
+.cozystar-delivery {
+  margin: 0 0 18px;
+  border: 0;
+  padding: 0;
+}
+
+.cozystar-delivery__legend {
+  margin-bottom: 8px;
+  padding: 0;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.cozystar-delivery__choices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.cozystar-delivery__choice {
+  display: grid;
+  grid-template-columns: auto 46px 1fr;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  min-height: 58px;
+  border: 1px solid #e4ddda;
+  border-radius: 8px;
+  padding: 8px 10px;
+  cursor: pointer;
+  transition: border-color .2s ease, background-color .2s ease, box-shadow .2s ease;
+}
+
+.cozystar-delivery__choice:has(.cozystar-delivery__radio:checked) {
+  border-color: var(--cozystar-pink);
+  box-shadow: inset 0 0 0 1px var(--cozystar-pink);
+  background: #fff8fa;
+}
+
+.cozystar-delivery__logo {
+  width: 46px;
+  height: 30px;
+  display: block;
+}
+
+.cozystar-delivery__name {
+  min-width: 0;
+  font-size: 12px;
+  font-weight: 900;
+  overflow-wrap: anywhere;
+}
+
+.cozystar-buybox__button {
+  width: 100%;
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 0;
+  border-radius: 6px;
+  padding: 13px 20px;
+  color: #fff;
+  background: var(--cozystar-orange);
+  text-decoration: none;
+  font-size: 19px;
+  font-weight: 900;
+  text-align: center;
+  flex-wrap: wrap;
+  overflow-wrap: anywhere;
+  transition: background-color .2s ease, filter .2s ease, box-shadow .2s ease;
+}
+
+.cozystar-buybox__button:hover {
+  filter: brightness(.96);
+}
+
+@media (hover: hover) {
+  .cozystar-header__link:hover,
+  .cozystar-footer__link:hover {
+    opacity: .68;
+  }
+
+  .cozystar-header__icon:hover,
+  .cozystar-testimonials__control:hover {
+    color: var(--cozystar-pink);
+    background: #fff4f7;
+  }
+
+  .cozystar-gallery__thumb:hover {
+    border-color: var(--cozystar-pink);
+    box-shadow: 0 0 0 2px rgba(216, 139, 161, .14);
+    filter: saturate(1.04);
+  }
+
+  .cozystar-bundle:hover,
+  .cozystar-choice:hover,
+  .cozystar-delivery__choice:hover {
+    border-color: var(--cozystar-pink);
+    box-shadow: 0 6px 20px rgba(116, 74, 84, .09);
+  }
+
+  .cozystar-buybox__button:hover {
+    box-shadow: 0 7px 20px rgba(255, 166, 25, .25);
+  }
+}
+
+.cozystar-shippingline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 22px 0;
+}
+
+.cozystar-shippingline__step {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  text-align: center;
+}
+
+.cozystar-shippingline__icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--cozystar-brown);
+}
+
+.cozystar-shippingline__icon svg {
+  width: 21px;
+  height: 21px;
+}
+
+.cozystar-shippingline__date {
+  margin-top: 5px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.cozystar-shippingline__label {
+  color: var(--cozystar-muted);
+  font-size: 11px;
+}
+
+.cozystar-handmade {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  border: 1px solid #d8e0c8;
+  border-radius: 12px;
+  padding: 16px 18px;
+  background: #f6f8f1;
+  font-size: 13px;
+}
+
+.cozystar-handmade > .cozystar-icon {
+  width: 19px;
+  height: 19px;
+  margin-top: 1px;
+  color: #527138;
+}
+
+.cozystar-handmade strong {
+  color: #527138;
+}
+
+.cozystar-product-details {
+  margin-top: 10px;
+}
+
+.cozystar-product-details__item {
+  border-bottom: 1px solid #eee7e4;
+}
+
+.cozystar-product-details__item,
+.cozystar-faq__item {
+  overflow: hidden;
+}
+
+.cozystar-product-details__summary,
+.cozystar-faq__summary {
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 900;
+}
+
+.cozystar-product-details__summary::-webkit-details-marker,
+.cozystar-faq__summary::-webkit-details-marker {
+  display: none;
+}
+
+.cozystar-summary__caret {
+  width: 10px;
+  height: 6px;
+  flex: 0 0 auto;
+  margin-left: 14px;
+  transition: transform .2s ease;
+}
+
+.cozystar-product-details__item[open] .cozystar-summary__caret,
+.cozystar-faq__item[open] .cozystar-summary__caret {
+  transform: rotate(180deg);
+}
+
+.cozystar-product-details__text,
+.cozystar-faq__text {
+  margin: 0;
+  padding: 0 30px 18px 0;
+  color: var(--cozystar-muted);
+  font-size: 14px;
+}
+
+.cozystar-section {
+  padding: 84px 0;
+}
+
+.cozystar-sizeguide {
+  text-align: center;
+}
+
+.cozystar-sizeguide__card {
+  width: min(100%, 760px);
+  margin-inline: auto;
+  overflow: hidden;
+  border-radius: 24px;
+  box-shadow: 0 18px 60px rgba(127, 86, 32, .12);
+}
+
+.cozystar-sizeguide__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.cozystar-sizeguide__note {
+  width: min(100%, 560px);
+  margin: 28px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid #eae4e1;
+  color: #6f6662;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.cozystar-softness__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 58px;
+  align-items: center;
+}
+
+.cozystar-softness__image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.15 / 1;
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+.cozystar-softness__title,
+.cozystar-section__title {
+  margin: 0;
+  color: #181310;
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.1;
+  font-weight: 900;
+  text-wrap: balance;
+}
+
+.cozystar-softness__text {
+  margin: 18px 0 0;
+  color: var(--cozystar-muted);
+  font-size: 18px;
+}
+
+.cozystar-guarantee__image {
+  display: block;
+  width: min(100%, 650px);
+  height: auto;
+  margin-inline: auto;
+  border-radius: 16px;
+  box-shadow: 0 18px 60px rgba(18, 28, 164, .14);
+}
+
+.cozystar-faq__inner {
+  width: min(100%, 700px);
+  margin-inline: auto;
+}
+
+.cozystar-faq .cozystar-section__title,
+.cozystar-testimonials .cozystar-section__title {
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.cozystar-faq__item {
+  border-top: 1px solid #ebe5e2;
+}
+
+.cozystar-faq__item:last-child {
+  border-bottom: 1px solid #ebe5e2;
+}
+
+.cozystar-faq__summary {
+  padding: 8px 0;
+}
+
+.cozystar-faq__text {
+  padding-left: 51px;
+}
+
+.cozystar-faq__summary-main {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.cozystar-faq__topic-icon {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 38px;
+  border-radius: 50%;
+  color: var(--cozystar-pink);
+  background: #fff1f5;
+}
+
+.cozystar-faq__topic-icon .cozystar-icon {
+  width: 21px;
+  height: 21px;
+}
+
+.cozystar-faq__summary-main > span:last-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.cozystar-product-details__item.cozystar-details--closing .cozystar-summary__caret,
+.cozystar-faq__item.cozystar-details--closing .cozystar-summary__caret {
+  transform: rotate(0deg);
+}
+
+.cozystar-testimonials {
+  padding-top: 30px;
+}
+
+.cozystar-testimonials__track {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.cozystar-testimonial {
+  min-width: 0;
+  border-radius: 22px;
+  padding: 22px 24px;
+  background: #f7f7f7;
+  text-align: center;
+}
+
+.cozystar-testimonial__title {
+  margin: 8px 0 10px;
+  font-size: 18px;
+  line-height: 1.25;
+  font-weight: 900;
+}
+
+.cozystar-testimonial__text {
+  margin: 0;
+  color: #655c58;
+  font-size: 14px;
+}
+
+.cozystar-testimonial__author {
+  margin: 15px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid #e7e2df;
+  color: #6f6662;
+  font-size: 13px;
+}
+
+.cozystar-testimonials__controls {
+  display: none;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.cozystar-testimonials__control {
+  width: 44px;
+  height: 44px;
+  border: 1px solid #ddd4d0;
+  border-radius: 50%;
+  color: var(--cozystar-ink);
+  background: #fff;
+  cursor: pointer;
+}
+
+.cozystar-testimonials__control .cozystar-icon {
+  width: 16px;
+  height: 12px;
+}
+
+.cozystar-testimonials__control--prev .cozystar-icon {
+  transform: rotate(180deg);
+}
+
+.cozystar-reviews {
+  padding: 42px 0 92px;
+}
+
+.cozystar-reviews__header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.cozystar-reviews__stars {
+  font-size: 25px;
+}
+
+.cozystar-reviews__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.cozystar-review {
+  min-width: 0;
+  border: 1px solid #e8e2df;
+  border-radius: 10px;
+  padding: 18px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(58, 40, 33, .04);
+}
+
+.cozystar-review__name {
+  margin: 0 0 5px;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.cozystar-review__verified {
+  color: #467348;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.cozystar-review__text {
+  margin: 8px 0 0;
+  font-size: 13px;
+}
+
+.cozystar-review__meta {
+  margin: 10px 0 0;
+  color: #9a8f8a;
+  font-size: 10px;
+}
+
+.cozystar-footer {
+  position: relative;
+  padding: 92px 0 42px;
+  color: #fff;
+  background: var(--cozystar-pink);
+  text-align: center;
+}
+
+.cozystar-footer::before,
+.cozystar-footer::after {
+  content: "";
+  position: absolute;
+  top: -35px;
+  left: -5%;
+  width: 110%;
+  height: 65px;
+  border-radius: 50% 50% 0 0;
+  background: #f5ced8;
+  transform: rotate(1.5deg);
+}
+
+.cozystar-footer::after {
+  top: -20px;
+  background: var(--cozystar-pink);
+  transform: rotate(-1deg);
+}
+
+.cozystar-footer__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.cozystar-footer__title {
+  margin: 0 0 20px;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.cozystar-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 24px;
+}
+
+.cozystar-footer__link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.cozystar-footer__copy {
+  margin: 32px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,.24);
+  font-size: 11px;
+}
+
+@media (max-width: 1199px) {
+  .cozystar-page {
+    --cozystar-pad: 28px;
+    --cozystar-gap: 28px;
+  }
+
+  .cozystar-product__grid {
+    grid-template-columns: minmax(0, 1.08fr) minmax(390px, .92fr);
+  }
+
+  .cozystar-options {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cozystar-header__inner {
+    min-height: 68px;
+  }
+}
+
+@media (max-width: 959px) {
+  .cozystar-page {
+    --cozystar-pad: 22px;
+    --cozystar-gap: 24px;
+  }
+
+  .cozystar-header__inner {
+    min-height: 64px;
+  }
+
+  .cozystar-header__nav {
+    display: none;
+  }
+
+  .cozystar-header__menu {
+    display: inline-grid;
+  }
+
+  .cozystar-header__actions .cozystar-header__icon:not(:last-child) {
+    display: none;
+  }
+
+  .cozystar-product__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cozystar-gallery {
+    position: static;
+  }
+
+  .cozystar-gallery__stage {
+    aspect-ratio: 1.05 / 1;
+  }
+
+  .cozystar-options {
+    grid-template-columns: 1fr;
+  }
+
+  .cozystar-softness__grid {
+    gap: 32px;
+  }
+
+  .cozystar-testimonials__track {
+    gap: 16px;
+  }
+
+  .cozystar-reviews__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 639px) {
+  .cozystar-page {
+    --cozystar-pad: 15px;
+  }
+
+  .cozystar-page__offerbar {
+    min-height: 50px;
+    gap: 12px;
+    padding-inline: 10px;
+    font-size: 10px;
+  }
+
+  .cozystar-page__offerbar-text {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  .cozystar-page__offerbar-desktop {
+    display: none;
+  }
+
+  .cozystar-page__offerbar-mobile {
+    display: inline;
+  }
+
+  .cozystar-countdown {
+    flex: 0 0 auto;
+    gap: 7px;
+  }
+
+  .cozystar-countdown__value {
+    font-size: 16px;
+  }
+
+  .cozystar-countdown__label {
+    display: none;
+  }
+
+  .cozystar-marquee__group {
+    gap: 22px;
+    padding: 9px 14px;
+    font-size: 12px;
+  }
+
+  .cozystar-header__inner {
+    min-height: 58px;
+  }
+
+  .cozystar-product {
+    padding-top: 0;
+  }
+
+  .cozystar-product .cozystar-page__container {
+    width: 100%;
+  }
+
+  .cozystar-buybox {
+    padding-inline: var(--cozystar-pad);
+  }
+
+  .cozystar-gallery__stage {
+    border-radius: 0;
+  }
+
+  .cozystar-gallery__thumbs {
+    grid-template-columns: repeat(4, 96px);
+    overflow-x: auto;
+    padding: 0 var(--cozystar-pad) 5px;
+    scrollbar-width: none;
+  }
+
+  .cozystar-gallery__thumbs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cozystar-buybox__rating {
+    margin-top: 10px;
+    font-size: 12px;
+  }
+
+  .cozystar-buybox__title {
+    margin-top: 7px;
+    font-size: 29px;
+    letter-spacing: -.8px;
+  }
+
+  .cozystar-bundle {
+    grid-template-columns: auto minmax(0, 1fr);
+    padding: 14px 12px;
+  }
+
+  .cozystar-bundle__price {
+    grid-column: 2;
+    text-align: left;
+  }
+
+  .cozystar-bundle__perks {
+    grid-column: 2;
+  }
+
+  .cozystar-bundle__title {
+    font-size: 17px;
+  }
+
+  .cozystar-delivery__choices {
+    grid-template-columns: 1fr;
+  }
+
+  .cozystar-shippingline__date {
+    font-size: 10px;
+  }
+
+  .cozystar-section {
+    padding: 62px 0;
+  }
+
+  .cozystar-sizeguide .cozystar-page__container {
+    width: calc(100% - 30px);
+  }
+
+  .cozystar-sizeguide__card {
+    border-radius: 18px;
+  }
+
+  .cozystar-softness__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cozystar-softness__title {
+    font-size: 27px;
+  }
+
+  .cozystar-softness__text {
+    font-size: 16px;
+  }
+
+  .cozystar-testimonials__track {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .cozystar-testimonials__track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cozystar-testimonial {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+  }
+
+  .cozystar-testimonials__controls {
+    display: flex;
+  }
+
+  .cozystar-reviews__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cozystar-footer {
+    padding-top: 72px;
+  }
+}
+
+@media (max-width: 479px) {
+  .cozystar-header__actions .cozystar-header__icon {
+    display: none;
+  }
+
+  .cozystar-gallery__stage {
+    aspect-ratio: .96 / 1;
+  }
+
+  .cozystar-gallery__main {
+    object-position: center;
+  }
+
+  .cozystar-buybox__button {
+    font-size: 17px;
+  }
+
+  .cozystar-buybox__title {
+    max-width: 100%;
+    font-size: 26px;
+    line-height: 1.08;
+    overflow-wrap: anywhere;
+  }
+
+  .cozystar-buybox__divider {
+    gap: 8px;
+    font-size: 12px;
+  }
+
+  .cozystar-bundle__title {
+    font-size: 16px;
+  }
+
+  .cozystar-bundle__perks {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 5px;
+  }
+
+  .cozystar-bundle__badge {
+    right: 8px;
+    max-width: calc(100% - 48px);
+    font-size: 9px;
+  }
+
+  .cozystar-shippingline__label {
+    font-size: 9px;
+  }
+}
+
+/* UX redesign: original content flow with a distinct visual system. */
+.cozystar-page {
+  --cozystar-container: 1240px;
+  --cozystar-pad: 32px;
+  --cozystar-gap: 48px;
+  --cozystar-radius-sm: 8px;
+  --cozystar-radius-md: 12px;
+  --cozystar-radius-lg: 18px;
+  --cozystar-ink: #2f2724;
+  --cozystar-muted: #776c67;
+  --cozystar-pink: #d77f9a;
+  --cozystar-pink-soft: #fce7ed;
+  --cozystar-pink-pale: #fff9f7;
+  --cozystar-brown: #302623;
+  background: #fffdfb;
+}
+
+.cozystar-page__offerbar {
+  min-height: 48px;
+  gap: 18px;
+  padding-block: 7px;
+  background: #302623;
+}
+
+.cozystar-marquee {
+  border-bottom: 1px solid rgba(64, 39, 32, .08);
+  background: #e89ab0;
+}
+
+.cozystar-marquee__group {
+  padding-block: 9px;
+}
+
+.cozystar-product {
+  padding: 52px 0 64px;
+  background:
+    radial-gradient(circle at 8% 8%, rgba(246, 196, 210, .24), transparent 28%),
+    #fffaf7;
+}
+
+.cozystar-product__grid {
+  grid-template-columns: minmax(0, 1.06fr) minmax(430px, .84fr);
+  gap: clamp(32px, 5vw, 64px);
+}
+
+.cozystar-gallery {
+  top: 24px;
+}
+
+.cozystar-gallery__stage {
+  border: 1px solid #f0e8e4;
+  border-radius: 24px;
+  background: #f8f5f3;
+  box-shadow: 0 24px 70px rgba(63, 45, 38, .09);
+}
+
+.cozystar-gallery__thumbs {
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.cozystar-gallery__thumb {
+  border-color: #ece3df;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.cozystar-gallery__thumb[aria-selected="true"] {
+  border-color: var(--cozystar-pink);
+  box-shadow: 0 0 0 2px rgba(215, 127, 154, .16);
+}
+
+.cozystar-buybox {
+  border: 1px solid #eee4df;
+  border-radius: 24px;
+  padding: clamp(22px, 3vw, 32px);
+  background: rgba(255, 255, 255, .96);
+  box-shadow: 0 22px 70px rgba(63, 45, 38, .1);
+}
+
+.cozystar-buybox__rating {
+  width: fit-content;
+  border-radius: 999px;
+  padding: 7px 11px;
+  background: #fff7dc;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.cozystar-buybox__title {
+  margin: 14px 0 22px;
+  font-size: clamp(34px, 3.4vw, 50px);
+}
+
+.cozystar-buybox__divider {
+  justify-content: flex-start;
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+.cozystar-buybox__divider::before {
+  display: none;
+}
+
+.cozystar-buybox__divider::after {
+  background: #eadcd7;
+}
+
+.cozystar-bundle {
+  border-color: #eadfda;
+  border-radius: 16px;
+  padding: 18px 16px;
+  background: #fff;
+}
+
+.cozystar-bundle.is-selected {
+  border-color: var(--cozystar-pink);
+  background: #fff6f8;
+  box-shadow: 0 0 0 2px rgba(215, 127, 154, .12);
+}
+
+.cozystar-options {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  margin-block: 22px;
+}
+
+.cozystar-choice,
+.cozystar-size-select {
+  min-height: 58px;
+  border-color: #e7dcd7;
+  border-radius: 13px;
+}
+
+.cozystar-delivery__choice {
+  min-height: 76px;
+  border-radius: 15px;
+}
+
+.cozystar-buybox__button {
+  min-height: 62px;
+  border-radius: 15px;
+  background: #302623;
+  box-shadow: 0 13px 30px rgba(48, 38, 35, .2);
+}
+
+.cozystar-shippingline {
+  border-radius: 18px;
+  padding: 18px 10px;
+  background: #faf6f3;
+}
+
+.cozystar-handmade {
+  border-color: #dfe8d6;
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.cozystar-product-details__summary {
+  min-height: 58px;
+}
+
+.cozystar-section {
+  padding: clamp(72px, 8vw, 112px) 0;
+}
+
+.cozystar-section__title {
+  font-size: clamp(32px, 4vw, 54px);
+  letter-spacing: -1.4px;
+}
+
+.cozystar-section-intro {
+  width: min(100%, 760px);
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+.cozystar-section-intro--left {
+  margin-left: 0;
+  text-align: left;
+}
+
+.cozystar-section-intro__eyebrow {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--cozystar-pink);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.cozystar-section-intro__text {
+  margin: 16px 0 0;
+  color: var(--cozystar-muted);
+  font-size: 18px;
+}
+
+.cozystar-sizeguide {
+  text-align: left;
+  background: #fff;
+}
+
+.cozystar-sizeguide__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.03fr) minmax(420px, .97fr);
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+}
+
+.cozystar-sizeguide__visual {
+  min-width: 0;
+}
+
+.cozystar-sizeguide__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #eadfda;
+  border-radius: 28px;
+  box-shadow: 0 24px 64px rgba(63, 45, 38, .1);
+}
+
+.cozystar-sizeguide__content {
+  min-width: 0;
+}
+
+.cozystar-sizeguide__content .cozystar-section-intro {
+  width: 100%;
+  margin-bottom: 26px;
+}
+
+.cozystar-sizeguide__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 11px;
+}
+
+.cozystar-sizeguide__item {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  gap: 4px 14px;
+  align-items: start;
+  overflow: hidden;
+  border: 1px solid #eadfda;
+  border-radius: 17px;
+  padding: 18px;
+  background: #fffaf7;
+}
+
+.cozystar-sizeguide__item:nth-child(2) {
+  background: #fff3f6;
+}
+
+.cozystar-sizeguide__item:nth-child(3) {
+  background: #f2f7fb;
+}
+
+.cozystar-sizeguide__index {
+  grid-row: 1 / 4;
+  margin-top: 3px;
+  color: rgba(47, 39, 36, .25);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.cozystar-sizeguide__age,
+.cozystar-sizeguide__height {
+  display: block;
+}
+
+.cozystar-sizeguide__age {
+  margin-top: 0;
+  font-size: 20px;
+  line-height: 1.08;
+}
+
+.cozystar-sizeguide__height {
+  margin-top: 3px;
+  color: var(--cozystar-pink);
+  font-weight: 900;
+}
+
+.cozystar-sizeguide__item p {
+  grid-column: 2;
+  margin: 5px 0 0;
+  color: var(--cozystar-muted);
+  font-size: 14px;
+}
+
+.cozystar-sizeguide__note {
+  width: fit-content;
+  max-width: none;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 16px 0 0;
+  border: 0;
+  border-radius: 16px;
+  padding: 16px 18px;
+  color: #625750;
+  background: #f7f2ef;
+  font-style: normal;
+  text-align: left;
+}
+
+.cozystar-sizeguide__note .cozystar-icon {
+  width: 22px;
+  height: 22px;
+  color: var(--cozystar-pink);
+}
+
+.cozystar-benefits {
+  background: #fff3f5;
+}
+
+.cozystar-benefits__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.cozystar-benefit {
+  min-width: 0;
+  border: 1px solid rgba(215, 127, 154, .18);
+  border-radius: 22px;
+  padding: 26px 22px;
+  background: rgba(255, 255, 255, .78);
+}
+
+.cozystar-benefit__icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 15px;
+  color: var(--cozystar-pink);
+  background: #fff;
+  box-shadow: 0 8px 22px rgba(118, 72, 84, .1);
+}
+
+.cozystar-benefit__icon .cozystar-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.cozystar-benefit h3 {
+  margin: 22px 0 8px;
+  font-size: 18px;
+}
+
+.cozystar-benefit p {
+  margin: 0;
+  color: var(--cozystar-muted);
+  font-size: 14px;
+}
+
+.cozystar-guarantee {
+  background: #fffdfb;
+}
+
+.cozystar-guarantee__card {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(180px, 280px) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: center;
+  overflow: hidden;
+  border-radius: 30px;
+  padding: clamp(30px, 6vw, 68px);
+  border: 0;
+  color: var(--cozystar-ink);
+  background:
+    radial-gradient(circle at 10% 20%, rgba(244, 167, 188, .32), transparent 34%),
+    radial-gradient(circle at 94% 12%, rgba(159, 204, 236, .2), transparent 26%),
+    linear-gradient(135deg, #fff8fa 0%, #fffdfb 56%, #f7f2ef 100%);
+  box-shadow: 0 24px 64px rgba(75, 49, 42, .1);
+}
+
+.cozystar-guarantee__number {
+  position: relative;
+  isolation: isolate;
+  min-height: 220px;
+  display: grid;
+  place-items: center;
+  font-size: clamp(120px, 17vw, 220px);
+  line-height: .78;
+  font-weight: 950;
+  letter-spacing: -12px;
+  color: var(--cozystar-pink);
+  text-shadow: 0 10px 30px rgba(215, 127, 154, .2);
+}
+
+.cozystar-guarantee__number::before,
+.cozystar-guarantee__number::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 50% auto auto 50%;
+  width: 190px;
+  height: 190px;
+  border: 1px solid rgba(215, 127, 154, .26);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cozystar-guarantee__number::after {
+  width: 235px;
+  height: 235px;
+  border-color: rgba(215, 127, 154, .13);
+}
+
+.cozystar-guarantee__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #2f8a54;
+}
+
+.cozystar-guarantee__eyebrow .cozystar-icon {
+  width: 20px;
+  height: 20px;
+  color: #2f8a54;
+  filter: drop-shadow(0 4px 8px rgba(47, 138, 84, .18));
+}
+
+.cozystar-guarantee__content h2 {
+  margin: 14px 0;
+  font-size: clamp(30px, 4vw, 54px);
+  line-height: 1.04;
+  letter-spacing: -1.5px;
+  color: var(--cozystar-ink);
+}
+
+.cozystar-guarantee__content > p {
+  max-width: 620px;
+  margin: 0;
+  color: var(--cozystar-muted);
+  font-size: 17px;
+}
+
+.cozystar-guarantee__points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.cozystar-guarantee__points span {
+  display: inline-flex;
+  align-items: center;
+  border: 0;
+  border-radius: var(--cozystar-radius-sm);
+  padding: 9px 12px;
+  color: var(--cozystar-ink);
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(57, 45, 41, .07);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.cozystar-guarantee__card.is-visible .cozystar-guarantee__number {
+  animation:
+    cozystar-number-reveal .9s cubic-bezier(.22, 1, .36, 1) both,
+    cozystar-number-breathe 4s ease-in-out 1.1s infinite;
+}
+
+.cozystar-guarantee__card.is-visible .cozystar-guarantee__number::before {
+  animation: cozystar-protection-ring 3.2s ease-out .35s infinite;
+}
+
+.cozystar-guarantee__card.is-visible .cozystar-guarantee__number::after {
+  animation: cozystar-protection-ring 3.2s ease-out 1.1s infinite;
+}
+
+@keyframes cozystar-number-reveal {
+  0% { opacity: 0; transform: scale(.62); filter: blur(5px); }
+  65% { opacity: 1; transform: scale(1.08); filter: blur(0); }
+  100% { opacity: 1; transform: scale(1); filter: blur(0); }
+}
+
+@keyframes cozystar-number-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.025); }
+}
+
+@keyframes cozystar-protection-ring {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(.72); }
+  24% { opacity: .55; }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(1.16); }
+}
+
+.cozystar-faq {
+  background: #f7f2ef;
+}
+
+.cozystar-faq__inner {
+  width: min(calc(100% - 2 * var(--cozystar-pad)), var(--cozystar-container));
+}
+
+.cozystar-faq__item {
+  margin-bottom: 10px;
+  border: 1px solid #e8ddd8;
+  border-radius: var(--cozystar-radius-md);
+  padding-inline: 18px;
+  background: #fff;
+}
+
+.cozystar-faq__item:last-child {
+  border-bottom: 1px solid #e8ddd8;
+}
+
+.cozystar-faq__summary {
+  min-height: 68px;
+}
+
+.cozystar-faq__topic-icon {
+  color: var(--cozystar-pink);
+  background: #fff0f4;
+}
+
+.cozystar-testimonials {
+  padding-block: clamp(72px, 8vw, 104px);
+  background: #fff;
+}
+
+.cozystar-testimonials .cozystar-section__title {
+  margin-bottom: 10px;
+}
+
+.cozystar-testimonials__rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 30px;
+  color: var(--cozystar-muted);
+  font-size: 14px;
+}
+
+.cozystar-testimonials__rating-stars {
+  color: var(--cozystar-gold);
+  letter-spacing: 1px;
+}
+
+.cozystar-testimonials__rating strong {
+  color: var(--cozystar-ink);
+}
+
+.cozystar-testimonials__track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.cozystar-testimonials__track::-webkit-scrollbar {
+  display: none;
+}
+
+.cozystar-testimonials__slide {
+  min-width: 0;
+  flex: 0 0 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  scroll-snap-align: start;
+}
+
+.cozystar-testimonial {
+  min-width: 0;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e8ddd8;
+  border-radius: var(--cozystar-radius-md);
+  padding: 24px;
+  background: #fffaf8;
+  box-shadow: 0 12px 28px rgba(60, 42, 35, .06);
+  text-align: left;
+}
+
+.cozystar-testimonial__author {
+  margin-top: auto;
+}
+
+.cozystar-testimonials__controls {
+  display: flex;
+  margin-top: 22px;
+}
+
+.cozystar-testimonials__control {
+  border-radius: 50%;
+}
+
+.cozystar-gallery__stage,
+.cozystar-buybox,
+.cozystar-sizeguide__image,
+.cozystar-guarantee__card {
+  border-radius: var(--cozystar-radius-lg);
+}
+
+.cozystar-gallery__thumb,
+.cozystar-bundle,
+.cozystar-choice,
+.cozystar-size-select,
+.cozystar-delivery__choice,
+.cozystar-buybox__button,
+.cozystar-shippingline,
+.cozystar-handmade,
+.cozystar-sizeguide__item,
+.cozystar-sizeguide__note,
+.cozystar-benefit,
+.cozystar-faq__item,
+.cozystar-testimonial {
+  border-radius: var(--cozystar-radius-md);
+}
+
+.cozystar-bundle__badge {
+  border-radius: var(--cozystar-radius-sm) var(--cozystar-radius-sm) 0 0;
+}
+
+.cozystar-benefit__icon,
+.cozystar-faq__topic-icon,
+.cozystar-delivery__logo {
+  border-radius: var(--cozystar-radius-sm);
+}
+
+.cozystar-footer {
+  padding: 24px var(--cozystar-pad);
+  color: rgba(255,255,255,.88);
+  background: var(--cozystar-brown);
+}
+
+.cozystar-footer::before,
+.cozystar-footer::after {
+  display: none;
+}
+
+.cozystar-footer__copy {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 12px;
+}
+
+@media (max-width: 1023px) {
+  .cozystar-page {
+    --cozystar-pad: 22px;
+  }
+
+  .cozystar-product__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cozystar-gallery {
+    position: static;
+  }
+
+  .cozystar-buybox {
+    width: min(100%, 720px);
+    margin-inline: auto;
+  }
+
+  .cozystar-sizeguide__layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cozystar-sizeguide__visual,
+  .cozystar-sizeguide__content {
+    width: min(100%, 720px);
+    margin-inline: auto;
+  }
+
+  .cozystar-benefits__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cozystar-testimonials__slide {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 639px) {
+  .cozystar-page {
+    --cozystar-pad: 15px;
+  }
+
+  .cozystar-page__offerbar {
+    min-height: 44px;
+    gap: 10px;
+  }
+
+  .cozystar-product {
+    padding: 0 0 48px;
+    background: #fff;
+  }
+
+  .cozystar-product .cozystar-page__container {
+    width: 100%;
+  }
+
+  .cozystar-gallery__stage {
+    border-inline: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .cozystar-gallery__thumbs {
+    grid-template-columns: repeat(4, 82px);
+    padding-inline: var(--cozystar-pad);
+  }
+
+  .cozystar-buybox {
+    width: calc(100% - 2 * var(--cozystar-pad));
+    margin-top: 20px;
+    border-radius: var(--cozystar-radius-lg);
+    padding: 20px 16px;
+    box-shadow: 0 16px 46px rgba(63, 45, 38, .09);
+  }
+
+  .cozystar-buybox__title {
+    font-size: 29px;
+  }
+
+  .cozystar-section {
+    padding: 68px 0;
+  }
+
+  .cozystar-section__title {
+    font-size: 34px;
+    letter-spacing: -.8px;
+  }
+
+  .cozystar-section-intro,
+  .cozystar-section-intro--left {
+    margin-bottom: 28px;
+    text-align: left;
+  }
+
+  .cozystar-section-intro__text {
+    font-size: 16px;
+  }
+
+  .cozystar-sizeguide .cozystar-page__container {
+    width: min(calc(100% - 2 * var(--cozystar-pad)), var(--cozystar-container));
+  }
+
+  .cozystar-sizeguide__image {
+    border-radius: var(--cozystar-radius-lg);
+  }
+
+  .cozystar-sizeguide__grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .cozystar-sizeguide__item {
+    min-height: 0;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 5px 16px;
+    border-radius: var(--cozystar-radius-md);
+    padding: 20px;
+  }
+
+  .cozystar-sizeguide__index {
+    grid-row: 1 / 4;
+    margin: 2px 0 0;
+  }
+
+  .cozystar-sizeguide__age {
+    margin-top: 0;
+    font-size: 21px;
+  }
+
+  .cozystar-sizeguide__item p {
+    grid-column: 2;
+  }
+
+  .cozystar-sizeguide__note {
+    margin-top: 16px;
+  }
+
+  .cozystar-benefits__grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .cozystar-benefit {
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 4px 14px;
+    align-items: center;
+    border-radius: var(--cozystar-radius-md);
+    padding: 18px;
+  }
+
+  .cozystar-benefit__icon {
+    grid-row: 1 / 3;
+  }
+
+  .cozystar-benefit h3 {
+    margin: 0;
+  }
+
+  .cozystar-benefit p {
+    grid-column: 2;
+  }
+
+  .cozystar-guarantee__card {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    border-radius: var(--cozystar-radius-lg);
+    padding: 30px 22px;
+  }
+
+  .cozystar-guarantee__number {
+    font-size: 116px;
+    letter-spacing: -7px;
+  }
+
+  .cozystar-guarantee__content h2 {
+    font-size: 34px;
+  }
+
+  .cozystar-guarantee__points {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .cozystar-faq__inner {
+    width: min(calc(100% - 2 * var(--cozystar-pad)), var(--cozystar-container));
+  }
+
+  .cozystar-faq__item {
+    padding-inline: 14px;
+  }
+
+  .cozystar-faq__summary {
+    min-height: 64px;
+  }
+
+  .cozystar-faq__topic-icon {
+    width: 34px;
+    height: 34px;
+    flex-basis: 34px;
+  }
+
+  .cozystar-faq__text {
+    padding-left: 47px;
+  }
+
+  .cozystar-testimonial {
+    min-height: 230px;
+  }
+
+  .cozystar-footer {
+    padding-block: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cozystar-page *,
+  .cozystar-page *::before,
+  .cozystar-page *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+
+<style data-cozystar-redesign="true">
+.cozystar-page span {
+  font-family: var(--t-text-font, inherit);
+}
+
+.cozystar-marquee__group {
+  gap: 26px;
+}
+
+.cozystar-marquee__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.cozystar-marquee__icon,
+.cozystar-detail-png {
+  flex: 0 0 auto;
+  display: inline-block;
+  background-repeat: no-repeat;
+}
+
+.cozystar-marquee__icon {
+  width: 26px;
+  height: 26px;
+  background-image: url("https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/marquee-icons.png");
+  background-size: 500% auto;
+}
+
+.cozystar-marquee__icon--1 { background-position: 0 50%; }
+.cozystar-marquee__icon--2 { background-position: 25% 50%; }
+.cozystar-marquee__icon--3 { background-position: 50% 50%; }
+.cozystar-marquee__icon--4 { background-position: 75% 50%; }
+.cozystar-marquee__icon--5 { background-position: 100% 50%; }
+
+.cozystar-gallery__stage {
+  position: relative;
+}
+
+.cozystar-gallery__arrow {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  color: var(--cozystar-ink);
+  background: rgba(255, 255, 255, .9);
+  box-shadow: 0 8px 22px rgba(57, 45, 41, .12);
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: background-color .2s ease, box-shadow .2s ease;
+}
+
+.cozystar-gallery__arrow:hover {
+  background: #fff;
+  box-shadow: 0 10px 26px rgba(57, 45, 41, .18);
+}
+
+.cozystar-gallery__arrow--prev { left: 14px; }
+.cozystar-gallery__arrow--next { right: 14px; }
+.cozystar-gallery__arrow--next .cozystar-icon { transform: rotate(180deg); }
+
+.cozystar-gallery__dots {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  bottom: 16px;
+  display: flex;
+  gap: 8px;
+  transform: translateX(-50%);
+}
+
+.cozystar-gallery__dot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(57, 45, 41, .28);
+  cursor: pointer;
+  transition: width .2s ease, background-color .2s ease;
+}
+
+.cozystar-gallery__dot[aria-current="true"] {
+  width: 26px;
+  border-radius: 999px;
+  background: var(--cozystar-pink);
+}
+
+.cozystar-buybox__rating-note {
+  color: var(--cozystar-muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.cozystar-single-offer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  border: 1px solid rgba(215, 127, 154, .38);
+  border-radius: var(--cozystar-radius-md);
+  padding: 18px;
+  background: linear-gradient(135deg, #fff8fa, #fff);
+}
+
+.cozystar-single-offer__title,
+.cozystar-single-offer__price {
+  display: block;
+  color: var(--cozystar-ink);
+  font-size: 21px;
+  font-weight: 900;
+}
+
+.cozystar-single-offer__note {
+  display: block;
+  margin-top: 5px;
+  color: var(--cozystar-muted);
+  font-size: 13px;
+}
+
+.cozystar-single-offer__price {
+  white-space: nowrap;
+  color: #b85572;
+}
+
+.cozystar-one-size {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  min-height: 62px;
+  border: 1px solid var(--cozystar-line);
+  border-radius: var(--cozystar-radius-sm);
+  padding: 12px 14px;
+  background: #fff;
+}
+
+.cozystar-one-size__badge {
+  flex: 0 0 auto;
+  border-radius: 7px;
+  padding: 7px 9px;
+  color: #7d3850;
+  background: var(--cozystar-pink-soft);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .5px;
+}
+
+.cozystar-one-size strong,
+.cozystar-one-size small {
+  display: block;
+}
+
+.cozystar-one-size small {
+  margin-top: 3px;
+  color: var(--cozystar-muted);
+}
+
+.cozystar-delivery__note {
+  margin: 10px 0 0;
+  color: var(--cozystar-muted);
+  font-size: 12px;
+}
+
+.cozystar-contact {
+  margin: 20px 0 0;
+  border: 0;
+  padding: 0;
+}
+
+.cozystar-contact__legend {
+  margin-bottom: 10px;
+  font-weight: 850;
+}
+
+.cozystar-contact__modes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.cozystar-contact__mode {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 54px;
+  border: 1px solid var(--cozystar-line);
+  border-radius: var(--cozystar-radius-sm);
+  padding: 10px 12px;
+  cursor: pointer;
+  background: #fff;
+}
+
+.cozystar-contact__mode:has(input:checked) {
+  border-color: var(--cozystar-pink);
+  box-shadow: inset 0 0 0 1px var(--cozystar-pink);
+  background: #fff8fa;
+}
+
+.cozystar-contact__radio {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 2px solid #d9c7cc;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.cozystar-contact__radio:checked {
+  border-color: var(--cozystar-pink);
+  background: var(--cozystar-pink);
+}
+
+.cozystar-delivery__radio {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  border: 2px solid #d9c7cc !important;
+  border-radius: 50% !important;
+  outline: 0;
+  background: #fff;
+  box-shadow: none !important;
+}
+
+.cozystar-delivery__radio:checked {
+  border-color: var(--cozystar-pink) !important;
+  background: var(--cozystar-pink) !important;
+  box-shadow: none !important;
+}
+
+.cozystar-contact__radio:focus-visible,
+.cozystar-delivery__radio:focus-visible {
+  outline: 2px solid rgba(215, 127, 154, .34);
+  outline-offset: 3px;
+}
+
+.cozystar-contact__fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.cozystar-contact__fields[hidden] { display: none; }
+
+.cozystar-field {
+  display: grid;
+  gap: 6px;
+  color: var(--cozystar-muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.cozystar-field input {
+  width: 100%;
+  min-width: 0;
+  height: 48px;
+  border: 1px solid var(--cozystar-line);
+  border-radius: var(--cozystar-radius-sm);
+  padding: 0 13px;
+  color: var(--cozystar-ink);
+  background: #fff;
+  font: inherit;
+}
+
+.cozystar-field input[aria-invalid="true"] {
+  border-color: #b85572;
+  box-shadow: 0 0 0 3px rgba(215, 127, 154, .16);
+}
+
+.cozystar-order-status {
+  min-height: 20px;
+  margin: 9px 0 0;
+  color: #7d3850;
+  font-size: 12px;
+  white-space: pre-line;
+}
+
+.cozystar-buybox__button {
+  width: 100%;
+  font-weight: 800;
+}
+
+.cozystar-detail-heading {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.cozystar-detail-png {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background-color: #fff0f4;
+  background-image: url("https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/detail-icons.png");
+  background-size: 600% auto;
+}
+
+.cozystar-detail-png--1 { background-position: 0 50%; }
+.cozystar-detail-png--2 { background-position: 20% 50%; }
+.cozystar-detail-png--3 { background-position: 40% 50%; }
+.cozystar-detail-png--4 { background-position: 60% 50%; }
+.cozystar-detail-png--5 { background-position: 80% 50%; }
+.cozystar-detail-png--6 { background-position: 100% 50%; }
+
+.cozystar-sizeguide__grid {
+  grid-template-columns: 1fr;
+}
+
+.cozystar-sizeguide__item {
+  min-height: 0;
+}
+
+.cozystar-sizeguide__item:nth-child(n) {
+  background: linear-gradient(135deg, #fff8fa, #f7fbff);
+}
+
+.cozystar-sizeguide__age {
+  font-size: clamp(26px, 4vw, 42px);
+}
+
+.cozystar-guarantee__visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 250px;
+}
+
+.cozystar-guarantee__visual img {
+  width: min(100%, 270px);
+  height: auto;
+  filter: drop-shadow(0 20px 30px rgba(184, 85, 114, .16));
+  animation: cozystar-protected-star 4.8s ease-in-out infinite;
+}
+
+@keyframes cozystar-protected-star {
+  0%, 100% { transform: scale(1) rotate(-1deg); }
+  50% { transform: scale(1.035) rotate(1deg); }
+}
+
+.cozystar-testimonials__disclaimer {
+  max-width: 680px;
+  margin: 10px auto 28px;
+  color: var(--cozystar-muted);
+  text-align: center;
+  font-size: 13px;
+}
+
+.cozystar-testimonial__meta {
+  display: inline-flex;
+  margin-bottom: 10px;
+  border-radius: 7px;
+  padding: 5px 8px;
+  color: #7d3850;
+  background: #fff0f4;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.cozystar-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px 24px;
+  align-items: center;
+}
+
+.cozystar-footer__contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+}
+
+.cozystar-footer__contact {
+  color: #fff;
+  text-decoration: none;
+  transition: opacity .2s ease;
+}
+
+.cozystar-footer__contact:hover { opacity: .72; }
+.cozystar-footer__contact[aria-disabled="true"] { opacity: .58; cursor: default; }
+
+.cozystar-chat {
+  position: fixed;
+  z-index: 80;
+  right: 22px;
+  bottom: 22px;
+}
+
+.cozystar-chat__toggle {
+  display: inline-flex;
+  gap: 9px;
+  align-items: center;
+  min-height: 52px;
+  border: 0;
+  border-radius: 14px;
+  padding: 0 18px;
+  color: #fff;
+  background: var(--cozystar-brown);
+  box-shadow: 0 14px 34px rgba(48, 38, 35, .24);
+  font-weight: 850;
+  cursor: pointer;
+  transition: background-color .2s ease, box-shadow .2s ease;
+}
+
+.cozystar-chat__toggle:hover {
+  background: #493733;
+  box-shadow: 0 16px 38px rgba(48, 38, 35, .3);
+}
+
+.cozystar-chat__panel {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 10px);
+  width: min(310px, calc(100vw - 32px));
+  border: 1px solid rgba(57, 45, 41, .1);
+  border-radius: var(--cozystar-radius-md);
+  padding: 16px;
+  background: #fff;
+  box-shadow: 0 20px 50px rgba(48, 38, 35, .18);
+}
+
+.cozystar-chat__panel[hidden] { display: none; }
+.cozystar-chat__panel strong { display: block; margin-bottom: 4px; }
+.cozystar-chat__panel p { margin: 0 0 12px; color: var(--cozystar-muted); font-size: 13px; }
+
+.cozystar-chat__link {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 8px;
+  border-radius: var(--cozystar-radius-sm);
+  padding: 0 12px;
+  color: var(--cozystar-ink);
+  background: #fff4f7;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.cozystar-chat__link[aria-disabled="true"] { opacity: .55; cursor: default; }
+
+@media (max-width: 767px) {
+  .cozystar-gallery__arrow { width: 40px; height: 40px; }
+  .cozystar-gallery__arrow--prev { left: 10px; }
+  .cozystar-gallery__arrow--next { right: 10px; }
+  .cozystar-single-offer { grid-template-columns: 1fr; gap: 10px; }
+  .cozystar-contact__modes,
+  .cozystar-contact__fields { grid-template-columns: 1fr; }
+  .cozystar-guarantee__visual { min-height: 210px; }
+  .cozystar-footer__inner { justify-content: center; text-align: center; }
+  .cozystar-footer__contacts { justify-content: center; }
+  .cozystar-chat { right: 14px; bottom: 14px; }
+  .cozystar-chat__toggle { min-height: 48px; padding: 0 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cozystar-guarantee__visual img { animation: none; }
+}
+</style>
+
+<section class="cozystar-page" data-cozystar-component="product-page">
+  <svg class="cozystar-svg-sprite" aria-hidden="true" focusable="false">
+    <symbol id="cozystar-icon-hamburger" viewBox="0 0 18 16">
+      <path d="M1 .5a.5.5 0 1 0 0 1h15.71a.5.5 0 0 0 0-1H1zM.5 8a.5.5 0 0 1 .5-.5h15.71a.5.5 0 0 1 0 1H1A.5.5 0 0 1 .5 8zm0 7a.5.5 0 0 1 .5-.5h15.71a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5z"/>
+    </symbol>
+    <symbol id="cozystar-icon-search" viewBox="0 0 18 19">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M11.03 11.68A5.784 5.784 0 1 1 2.85 3.5a5.784 5.784 0 0 1 8.18 8.18zm.26 1.12a6.78 6.78 0 1 1 .72-.7l5.4 5.4a.5.5 0 1 1-.71.7l-5.41-5.4z"/>
+    </symbol>
+    <symbol id="cozystar-icon-account" viewBox="0 0 18 19">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M6 4.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-4a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm5.58 12.15c1.12.82 1.83 2.24 1.91 4.85H1.51c.08-2.6.79-4.03 1.9-4.85C4.66 11.75 6.5 11.5 9 11.5s4.35.26 5.58 1.15zM9 10.5c-2.5 0-4.65.24-6.17 1.35C1.27 12.98.5 14.93.5 18v.5h17V18c0-3.07-.77-5.02-2.33-6.15-1.52-1.1-3.67-1.35-6.17-1.35z"/>
+    </symbol>
+    <symbol id="cozystar-icon-cart" viewBox="0 0 35.53 44.83">
+      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12.36 10.93l29.38-.08 1.45 32.8H10.66Z" transform="translate(-9.16 -.32)"/>
+      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19.39 10.85V9.52a7.7 7.7 0 1 1 15.39 0v1.33" transform="translate(-9.16 -.32)"/>
+      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19.12 15.46a7.7 7.7 0 0 0 15.08 0" transform="translate(-9.16 -.32)"/>
+    </symbol>
+    <symbol id="cozystar-icon-caret" viewBox="0 0 10 6">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708z"/>
+    </symbol>
+    <symbol id="cozystar-icon-arrow" viewBox="0 0 14 10">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M8.537.808a.5.5 0 0 1 .817-.162l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 1 1-.708-.708L11.793 5.5H1a.5.5 0 0 1 0-1h10.793L8.646 1.354a.5.5 0 0 1-.109-.546z"/>
+    </symbol>
+    <symbol id="cozystar-icon-truck" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M3 6h11v11H3zM14 10h4l3 3v4h-7z"/><circle cx="7" cy="18" r="2" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="18" cy="18" r="2" fill="none" stroke="currentColor" stroke-width="1.7"/>
+    </symbol>
+    <symbol id="cozystar-icon-gift" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M4 9h16v11H4zM3 6h18v3H3zM12 6v14M12 6c-2.8 0-5-1-5-3 2.4-.6 4.2.3 5 3zm0 0c2.8 0 5-1 5-3-2.4-.6-4.2.3-5 3z"/>
+    </symbol>
+    <symbol id="cozystar-icon-shield" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M12 3 20 6v5c0 5.1-3.4 8.5-8 10-4.6-1.5-8-4.9-8-10V6zM8.5 12l2.2 2.2 4.8-5"/>
+    </symbol>
+    <symbol id="cozystar-icon-yarn" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.7" d="M6 7.2c3.8.5 7.2 3 9.7 7.2M8.7 4.6c4 1.7 7.4 5.2 9.1 9.2M5 14.5c4.1-1.7 8.6-2.1 13-.9M14.5 20c1.7-4.1 1.9-8.5.6-12.8M19.5 18.5h2"/>
+    </symbol>
+    <symbol id="cozystar-icon-ruler" viewBox="0 0 469.333 469.333">
+      <path d="M466.208 109.792 359.542 3.125c-4.167-4.167-10.917-4.167-15.083 0L3.125 344.458c-4.167 4.167-4.167 10.917 0 15.083l106.667 106.667a10.63 10.63 0 0 0 7.542 3.125c2.729 0 5.458-1.042 7.542-3.125l341.333-341.333c4.166-4.167 4.166-10.917-.001-15.083M416 144.917l-35.125-35.125c-4.167-4.167-10.917-4.167-15.083 0s-4.167 10.917 0 15.083L400.917 160l-27.583 27.583-24.458-24.458c-4.167-4.167-10.917-4.167-15.083 0s-4.167 10.917 0 15.083l24.458 24.458-27.583 27.583-24.458-24.458c-4.167-4.167-10.917-4.167-15.083 0s-4.167 10.917 0 15.083l24.458 24.458L288 272.917l-35.125-35.125c-4.167-4.167-10.917-4.167-15.083 0s-4.167 10.917 0 15.083L272.917 288l-27.583 27.583-24.458-24.458c-4.167-4.167-10.917-4.167-15.083 0s-4.167 10.917 0 15.083l24.458 24.458-27.583 27.583-24.458-24.458c-4.167-4.167-10.917-4.167-15.083 0s-4.167 10.917 0 15.083l24.458 24.458L160 400.917l-35.125-35.125c-4.167-4.167-10.917-4.167-15.083 0s-4.167 10.917 0 15.083L144.917 416l-27.583 27.583L25.75 352 352 25.75l91.583 91.583z"/>
+    </symbol>
+    <symbol id="cozystar-icon-waves" viewBox="0 -960 960 960">
+      <path d="M80-146v-78q29 0 49.5-9t41.5-19.5q21-10.5 46.5-19t63-8.5q37.5 0 62 8.5t45.5 19q21 10.5 42 19.5t50 9q29 0 50-9t42-19.5q21-10.5 46-19t62.5-8.5q37.5 0 62.5 8.5t46 19q21 10.5 42 19.5t49 9v78q-38 0-63.5-9T770-174.5q-21-10.5-41-19t-49-8.5q-28 0-48.5 8.5t-41 19Q570-164 544.5-155t-64.5 9q-39 0-64.5-9t-46-19.5Q349-185 329-193.5t-48.5-8.5q-28.5 0-49 8.5t-41.5 19Q169-164 143.5-155T80-146Zm0-178v-78q29 0 49.5-9t41.5-19.5q21-10.5 46.5-19t63-8.5q37.5 0 62 8.5t45.5 19q21 10.5 42 19.5t50 9q29 0 50-9t42-19.5q21-10.5 46-19t62-8.5q38 0 63 8.5t46 19q21 10.5 42 19.5t49 9v78q-38 0-63.5-9T770-352.5q-21-10.5-41-19t-49-8.5q-29 0-49.5 8.5t-41 19Q569-342 544-333t-64 9q-39 0-64.5-9t-46-19.5Q349-363 329-371.5t-48.5-8.5q-28.5 0-49 8.5t-41.5 19Q169-342 143.5-333T80-324Zm0-178v-78q29 0 49.5-9t41.5-19.5q21-10.5 46.5-19t63-8.5q37.5 0 62 8.5t45.5 19q21 10.5 42 19.5t50 9q29 0 50-9t42-19.5q21-10.5 46-19t62-8.5q38 0 63 8.5t46 19q21 10.5 42 19.5t49 9v78q-38 0-63.5-9T770-530.5q-21-10.5-41-19t-49-8.5q-28 0-48.5 8.5t-41 19Q570-520 544.5-511t-64.5 9q-39 0-64.5-9t-46-19.5Q349-541 329-549.5t-48.5-8.5q-28.5 0-49 8.5t-41.5 19Q169-520 143.5-511T80-502Zm0-178v-78q29 0 49.5-9t41.5-19.5q21-10.5 46.5-19t63-8.5q37.5 0 62 8.5t45.5 19q21 10.5 42 19.5t50 9q29 0 50-9t42-19.5q21-10.5 46-19t62-8.5q38 0 63 8.5t46 19q21 10.5 42 19.5t49 9v78q-38 0-63.5-9T770-708.5q-21-10.5-41-19t-49-8.5q-28 0-48.5 8.5t-41 19Q570-698 544.5-689t-64.5 9q-39 0-64.5-9t-46-19.5Q349-719 329-727.5t-48.5-8.5q-28.5 0-49 8.5t-41.5 19Q169-698 143.5-689T80-680Z"/>
+    </symbol>
+    <symbol id="cozystar-icon-washing-machine" viewBox="0 0 24 30">
+      <path d="M6 4a1 1 0 1 1-2 0 1 1 0 0 1 2 0M8 5a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 10a8 8 0 1 0 0 16 8 8 0 0 0 0-16m-6 8a6 6 0 1 1 12 0 6 6 0 0 1-12 0"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M0 3a3 3 0 0 1 3-3h18a3 3 0 0 1 3 3v24a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3zm3-1a1 1 0 0 0-1 1v3h20V3a1 1 0 0 0-1-1zM2 27V8h20v19a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1"/>
+    </symbol>
+    <symbol id="cozystar-icon-weight" viewBox="0 -960 960 960">
+      <path d="M480-480q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Zm-74-106q-6-6-6-14t6-14q6-6 14-6t14 6q6 6 6 14t-6 14q-6 6-14 6t-14-6Zm60 0q-6-6-6-14t6-14q6-6 14-6t14 6q6 6 6 14t-6 14q-6 6-14 6t-14-6Zm60 0q-6-6-6-14t6-14q6-6 14-6t14 6q6 6 6 14t-6 14q-6 6-14 6t-14-6ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Z"/>
+    </symbol>
+  </svg>
+  <div class="cozystar-page__offerbar">
+    <p class="cozystar-page__offerbar-text"><span class="cozystar-page__offerbar-desktop">СКИДКА ДО 47% + ПОДАРОК <svg class="cozystar-icon" aria-hidden="true"><use href="#cozystar-icon-gift"/></svg></span><span class="cozystar-page__offerbar-mobile">СКИДКА + ПОДАРОК <svg class="cozystar-icon" aria-hidden="true"><use href="#cozystar-icon-gift"/></svg></span></p>
+    <div class="cozystar-countdown" aria-label="До конца акции" data-cozystar-countdown>
+      <span class="cozystar-countdown__part"><span class="cozystar-countdown__value" data-cozystar-hours>05</span><span class="cozystar-countdown__label">часов</span></span>
+      <span class="cozystar-countdown__part"><span class="cozystar-countdown__value" data-cozystar-minutes>42</span><span class="cozystar-countdown__label">минут</span></span>
+      <span class="cozystar-countdown__part"><span class="cozystar-countdown__value" data-cozystar-seconds>44</span><span class="cozystar-countdown__label">секунд</span></span>
+    </div>
+  </div>
+
+  <div class="cozystar-marquee" aria-label="Преимущества заказа">
+    <div class="cozystar-marquee__track">
+      <div class="cozystar-marquee__group"><span class="cozystar-marquee__item"><i class="cozystar-marquee__icon cozystar-marquee__icon--1" aria-hidden="true"></i>ПОДАРОК К ЗВЁЗДОЧКЕ</span><span class="cozystar-marquee__item"><i class="cozystar-marquee__icon cozystar-marquee__icon--2" aria-hidden="true"></i>СВЯЗАНО ВРУЧНУЮ</span><span class="cozystar-marquee__item"><i class="cozystar-marquee__icon cozystar-marquee__icon--3" aria-hidden="true"></i>РОЗОВЫЙ И ГОЛУБОЙ</span><span class="cozystar-marquee__item"><i class="cozystar-marquee__icon cozystar-marquee__icon--4" aria-hidden="true"></i>ПОДГОТОВКА 1–2 ДНЯ</span><span class="cozystar-marquee__item"><i class="cozystar-marquee__icon cozystar-marquee__icon--5" aria-hidden="true"></i>OZON И СДЭК</span></div>
+      <div class="cozystar-marquee__group" aria-hidden="true"><span class="cozystar-marquee__item"><i class="cozystar-marquee__icon cozystar-marquee__icon--1"></i>ПОДАРОК К ЗВЁЗДОЧКЕ</span><span class="cozystar-marquee__item"><i class="cozystar-marquee__icon cozystar-marquee__icon--2"></i>СВЯЗАНО ВРУЧНУЮ</span><span class="cozystar-marquee__item"><i class="cozystar-marquee__icon cozystar-marquee__icon--3"></i>РОЗОВЫЙ И ГОЛУБОЙ</span><span class="cozystar-marquee__item"><i class="cozystar-marquee__icon cozystar-marquee__icon--4"></i>ПОДГОТОВКА 1–2 ДНЯ</span><span class="cozystar-marquee__item"><i class="cozystar-marquee__icon cozystar-marquee__icon--5"></i>OZON И СДЭК</span></div>
+    </div>
+  </div>
+
+  <main>
+    <section class="cozystar-product" id="cozystar-product" aria-labelledby="cozystar-product-title">
+      <div class="cozystar-page__container cozystar-product__grid">
+        <div class="cozystar-gallery" data-cozystar-gallery>
+          <div class="cozystar-gallery__stage">
+            <img class="cozystar-gallery__main" data-cozystar-main-image src="https://cozystarbaby.com/cdn/shop/files/hf_20260727_065315_3d84192b-5c21-4d43-8ba3-3da3aa19fccb.png?v=1785135345&amp;width=1946" alt="Розовая вязаная Звёздочка" width="1200" height="1200">
+            <button class="cozystar-gallery__arrow cozystar-gallery__arrow--prev" type="button" aria-label="Предыдущий цвет" data-cozystar-gallery-prev><svg class="cozystar-icon" aria-hidden="true"><use href="#cozystar-icon-arrow"/></svg></button>
+            <button class="cozystar-gallery__arrow cozystar-gallery__arrow--next" type="button" aria-label="Следующий цвет" data-cozystar-gallery-next><svg class="cozystar-icon" aria-hidden="true"><use href="#cozystar-icon-arrow"/></svg></button>
+            <div class="cozystar-gallery__dots" aria-label="Цвет товара"><button class="cozystar-gallery__dot" type="button" aria-label="Розовый" aria-current="true" data-cozystar-gallery-dot="0"></button><button class="cozystar-gallery__dot" type="button" aria-label="Голубой" aria-current="false" data-cozystar-gallery-dot="1"></button></div>
+          </div>
+          <div class="cozystar-gallery__thumbs" role="listbox" aria-label="Два цвета Звёздочки">
+            <button class="cozystar-gallery__thumb" type="button" aria-selected="true" data-cozystar-thumb data-cozystar-color-image="Розовый" data-src="https://cozystarbaby.com/cdn/shop/files/hf_20260727_065315_3d84192b-5c21-4d43-8ba3-3da3aa19fccb.png?v=1785135345&amp;width=1946" data-alt="Розовая вязаная Звёздочка"><img src="https://cozystarbaby.com/cdn/shop/files/hf_20260727_065315_3d84192b-5c21-4d43-8ba3-3da3aa19fccb.png?v=1785135345&amp;width=1946" alt="Розовый цвет" width="1200" height="1200"></button>
+            <button class="cozystar-gallery__thumb" type="button" aria-selected="false" data-cozystar-thumb data-cozystar-color-image="Голубой" data-src="https://cozystarbaby.com/cdn/shop/files/hf_20260727_065418_ed68dfc1-459b-4299-bbad-beaebca1d9f8.png?v=1785135345&amp;width=1946" data-alt="Голубая вязаная Звёздочка"><img src="https://cozystarbaby.com/cdn/shop/files/hf_20260727_065418_ed68dfc1-459b-4299-bbad-beaebca1d9f8.png?v=1785135345&amp;width=1946" alt="Голубой цвет" width="1200" height="1200"></button>
+          </div>
+        </div>
+
+        <div class="cozystar-buybox">
+          <div class="cozystar-buybox__rating"><span class="cozystar-buybox__stars" aria-hidden="true">★★★★★</span><span class="cozystar-buybox__rating-note">ручная работа и бережная упаковка</span></div>
+          <h1 class="cozystar-buybox__title" id="cozystar-product-title">Вязаный аксессуар «Звёздочка»</h1>
+          <div class="cozystar-buybox__divider">Комплект</div>
+
+          <div class="cozystar-single-offer">
+            <div><strong class="cozystar-single-offer__title">1 звёздочка + подарок</strong><span class="cozystar-single-offer__note">Связано вручную специально для малыша</span></div>
+            <strong class="cozystar-single-offer__price">4 990 ₽</strong>
+          </div>
+
+          <div class="cozystar-options">
+            <fieldset class="cozystar-options__group">
+              <legend class="cozystar-options__legend">Цвет</legend>
+              <div class="cozystar-options__choices">
+                <label class="cozystar-choice"><input class="cozystar-choice__radio" type="radio" value="Розовый" data-cozystar-color checked><span class="cozystar-choice__swatch cozystar-choice__swatch--pink" aria-hidden="true"></span><span class="cozystar-choice__text">Розовый</span></label>
+                <label class="cozystar-choice"><input class="cozystar-choice__radio" type="radio" value="Голубой" data-cozystar-color><span class="cozystar-choice__swatch cozystar-choice__swatch--blue" aria-hidden="true"></span><span class="cozystar-choice__text">Голубой</span></label>
+              </div>
+            </fieldset>
+            <div class="cozystar-options__group">
+              <span class="cozystar-options__legend">Размер</span>
+              <div class="cozystar-one-size"><span class="cozystar-one-size__badge">ONE SIZE</span><span><strong>0–8 месяцев</strong><small>Ориентир по росту: 50–68 см</small></span></div>
+            </div>
+          </div>
+
+          <fieldset class="cozystar-delivery">
+            <legend class="cozystar-delivery__legend">Как удобнее получить заказ?</legend>
+            <div class="cozystar-delivery__choices">
+              <label class="cozystar-delivery__choice"><input class="cozystar-delivery__radio" type="radio" value="Ozon" data-cozystar-delivery checked><svg class="cozystar-delivery__logo" viewBox="0 0 92 60" aria-label="Ozon"><rect width="92" height="60" rx="10" fill="#0757ff"/><text x="46" y="38" fill="#fff" font-size="23" font-weight="900" font-family="Arial" text-anchor="middle">OZON</text></svg><span class="cozystar-delivery__name">Пункт Ozon</span></label>
+              <label class="cozystar-delivery__choice"><input class="cozystar-delivery__radio" type="radio" value="СДЭК" data-cozystar-delivery><svg class="cozystar-delivery__logo" viewBox="0 0 92 60" aria-label="СДЭК"><rect width="92" height="60" rx="10" fill="#ecf8e9"/><text x="46" y="38" fill="#35a93b" font-size="25" font-weight="900" font-family="Arial" text-anchor="middle">СДЭК</text></svg><span class="cozystar-delivery__name">Пункт СДЭК</span></label>
+            </div>
+            <p class="cozystar-delivery__note">Стоимость доставки оплачивается покупателем отдельно по тарифу выбранной службы.</p>
+          </fieldset>
+
+          <fieldset class="cozystar-contact">
+            <legend class="cozystar-contact__legend">Как с вами связаться?</legend>
+            <div class="cozystar-contact__modes">
+              <label class="cozystar-contact__mode"><input class="cozystar-contact__radio" type="radio" name="cozystar-contact-method" value="Telegram" data-cozystar-contact-method checked><span>Telegram</span></label>
+              <label class="cozystar-contact__mode"><input class="cozystar-contact__radio" type="radio" name="cozystar-contact-method" value="MAX" data-cozystar-contact-method><span>MAX</span></label>
+            </div>
+            <div class="cozystar-contact__fields" data-cozystar-telegram-fields>
+              <label class="cozystar-field"><span>Telegram-логин</span><input type="text" inputmode="text" placeholder="@username" autocomplete="off" data-cozystar-telegram-login></label>
+              <label class="cozystar-field"><span>Телефон</span><input type="tel" placeholder="+7 900 000-00-00" autocomplete="tel" data-cozystar-telegram-phone></label>
+            </div>
+            <div class="cozystar-contact__fields" data-cozystar-max-fields hidden>
+              <label class="cozystar-field"><span>Телефон, привязанный к MAX</span><input type="tel" placeholder="+7 900 000-00-00" autocomplete="tel" data-cozystar-max-phone></label>
+            </div>
+          </fieldset>
+
+          <button class="cozystar-buybox__button" type="button" data-cozystar-order>Оформить в Telegram · 4 990 ₽</button>
+          <p class="cozystar-order-status" role="status" aria-live="polite" data-cozystar-order-status></p>
+
+          <p class="cozystar-handmade"><svg class="cozystar-icon" aria-hidden="true"><use href="#cozystar-icon-yarn"/></svg><span><strong>Каждая звёздочка создаётся вручную, петля за петлёй.</strong> Поэтому она мягкая, прочная и по-настоящему уникальная.</span></p>
+
+          <div class="cozystar-product-details">
+            <details class="cozystar-product-details__item"><summary class="cozystar-product-details__summary"><span class="cozystar-detail-heading"><i class="cozystar-detail-png cozystar-detail-png--1" aria-hidden="true"></i>Свободная посадка</span><svg class="cozystar-icon cozystar-summary__caret" aria-hidden="true"><use href="#cozystar-icon-caret"/></svg></summary><p class="cozystar-product-details__text">Эластичная форма оставляет место для движений и подходит малышам ростом примерно 50–68 см.</p></details>
+            <details class="cozystar-product-details__item"><summary class="cozystar-product-details__summary"><span class="cozystar-detail-heading"><i class="cozystar-detail-png cozystar-detail-png--2" aria-hidden="true"></i>Материалы и комфорт</span><svg class="cozystar-icon cozystar-summary__caret" aria-hidden="true"><use href="#cozystar-icon-caret"/></svg></summary><p class="cozystar-product-details__text">80% хлопка и 20% мягкого акрила. Пряжа приятна к коже и подходит для деликатного ухода.</p></details>
+            <details class="cozystar-product-details__item"><summary class="cozystar-product-details__summary"><span class="cozystar-detail-heading"><i class="cozystar-detail-png cozystar-detail-png--6" aria-hidden="true"></i>Подготовка и доставка</span><svg class="cozystar-icon cozystar-summary__caret" aria-hidden="true"><use href="#cozystar-icon-caret"/></svg></summary><p class="cozystar-product-details__text">Подготовка заказа занимает 1–2 рабочих дня. После отправки пришлём данные для отслеживания. Доставка оплачивается покупателем.</p></details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cozystar-section cozystar-sizeguide" aria-labelledby="cozystar-sizeguide-title">
+      <div class="cozystar-page__container">
+        <div class="cozystar-sizeguide__layout">
+          <div class="cozystar-sizeguide__visual">
+            <img class="cozystar-sizeguide__image" loading="lazy" src="https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/one-size-guide-ru.png" alt="Размер One Size: 0–8 месяцев, рост 50–68 сантиметров" width="1254" height="1254">
+          </div>
+          <div class="cozystar-sizeguide__content">
+            <div class="cozystar-section-intro cozystar-section-intro--left">
+              <span class="cozystar-section-intro__eyebrow">Один продуманный размер</span>
+              <h2 class="cozystar-section__title" id="cozystar-sizeguide-title">Размер 1 — One Size</h2>
+              <p class="cozystar-section-intro__text">Модель рассчитана на малышей от рождения примерно до 8 месяцев. Главный ориентир — фактический рост ребёнка.</p>
+            </div>
+            <div class="cozystar-sizeguide__grid">
+              <article class="cozystar-sizeguide__item"><span class="cozystar-sizeguide__index">01</span><strong class="cozystar-sizeguide__age">One Size</strong><span class="cozystar-sizeguide__height">0–8 месяцев · рост 50–68 см</span><p>Свободная вязка мягко адаптируется к движениям и оставляет комфортный запас.</p></article>
+            </div>
+            <p class="cozystar-sizeguide__note"><svg class="cozystar-icon" aria-hidden="true"><use href="#cozystar-icon-ruler"/></svg><span>Возраст указан как ориентир. Перед заказом измерьте полный рост малыша; точные параметры размера можно будет обновить после контрольных замеров.</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cozystar-section cozystar-benefits" aria-labelledby="cozystar-benefits-title">
+      <div class="cozystar-page__container">
+        <div class="cozystar-section-intro cozystar-section-intro--left">
+          <span class="cozystar-section-intro__eyebrow">Продумано для малыша</span>
+          <h2 class="cozystar-section__title" id="cozystar-benefits-title">Комфорт в каждом движении</h2>
+          <p class="cozystar-section-intro__text">Материалы и посадка подобраны для ежедневного использования — без тяжёлых застёжек и жёстких швов.</p>
+        </div>
+        <div class="cozystar-benefits__grid">
+          <article class="cozystar-benefit"><span class="cozystar-benefit__icon"><i class="cozystar-detail-png cozystar-detail-png--2" aria-hidden="true"></i></span><h3>Мягкая вязка</h3><p>80% хлопка и 20% мягкого акрила бережно соприкасаются с кожей.</p></article>
+          <article class="cozystar-benefit"><span class="cozystar-benefit__icon"><i class="cozystar-detail-png cozystar-detail-png--3" aria-hidden="true"></i></span><h3>Ручная работа</h3><p>Каждая звёздочка создаётся петля за петлёй и получается по-настоящему уникальной.</p></article>
+          <article class="cozystar-benefit"><span class="cozystar-benefit__icon"><i class="cozystar-detail-png cozystar-detail-png--1" aria-hidden="true"></i></span><h3>Свобода движений</h3><p>Эластичная форма не мешает малышу двигать ручками и ножками.</p></article>
+          <article class="cozystar-benefit"><span class="cozystar-benefit__icon"><i class="cozystar-detail-png cozystar-detail-png--5" aria-hidden="true"></i></span><h3>Простой уход</h3><p>Деликатная стирка помогает сохранить форму, цвет и мягкость изделия.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cozystar-section cozystar-guarantee" aria-labelledby="cozystar-guarantee-title">
+      <div class="cozystar-page__container">
+        <div class="cozystar-guarantee__card">
+          <div class="cozystar-guarantee__visual"><img loading="lazy" src="https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/protected-star-3d.png" alt="Вязаная звезда под мягкой защитой" width="1536" height="1536"></div>
+          <div class="cozystar-guarantee__content"><span class="cozystar-guarantee__eyebrow"><svg class="cozystar-icon" aria-hidden="true"><use href="#cozystar-icon-shield"/></svg> Покупка без риска</span><h2 id="cozystar-guarantee-title">Спокойная покупка и поддержка</h2><p>Перед заказом можно уточнить размер, материал и доставку. Если после получения появится вопрос, напишите нам — спокойно разберёмся и подскажем решение.</p><div class="cozystar-guarantee__points"><span>Понятные условия</span><span>Связь напрямую</span><span>Быстрый ответ</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cozystar-section cozystar-faq" aria-labelledby="cozystar-faq-title">
+      <div class="cozystar-page__container cozystar-faq__inner">
+        <h2 class="cozystar-section__title" id="cozystar-faq-title">Частые вопросы</h2>
+        <details class="cozystar-faq__item"><summary class="cozystar-faq__summary"><span class="cozystar-faq__summary-main"><span class="cozystar-faq__topic-icon"><svg class="cozystar-icon" aria-hidden="true"><use href="#cozystar-icon-ruler"/></svg></span><span>Какой размер доступен?</span></span><svg class="cozystar-icon cozystar-summary__caret" aria-hidden="true"><use href="#cozystar-icon-caret"/></svg></summary><p class="cozystar-faq__text">Сейчас доступен один размер One Size: ориентировочно от рождения до 8 месяцев и на рост 50–68 см. Перед заказом лучше свериться с фактическим ростом малыша.</p></details>
+        <details class="cozystar-faq__item"><summary class="cozystar-faq__summary"><span class="cozystar-faq__summary-main"><span class="cozystar-faq__topic-icon"><svg class="cozystar-icon" aria-hidden="true"><use href="#cozystar-icon-waves"/></svg></span><span>Малышу будет комфортно?</span></span><svg class="cozystar-icon cozystar-summary__caret" aria-hidden="true"><use href="#cozystar-icon-caret"/></svg></summary><p class="cozystar-faq__text">Мягкая хлопково-акриловая пряжа и свободная форма не ограничивают движения. Для длительного сна ориентируйтесь на температуру в помещении.</p></details>
+        <details class="cozystar-faq__item"><summary class="cozystar-faq__summary"><span class="cozystar-faq__summary-main"><span class="cozystar-faq__topic-icon"><svg class="cozystar-icon" aria-hidden="true"><use href="#cozystar-icon-washing-machine"/></svg></span><span>Как ухаживать за Звёздочкой?</span></span><svg class="cozystar-icon cozystar-summary__caret" aria-hidden="true"><use href="#cozystar-icon-caret"/></svg></summary><p class="cozystar-faq__text">Стирайте в прохладной воде на деликатном режиме и сушите в разложенном виде, не выкручивая изделие.</p></details>
+        <details class="cozystar-faq__item"><summary class="cozystar-faq__summary"><span class="cozystar-faq__summary-main"><span class="cozystar-faq__topic-icon"><svg class="cozystar-icon" aria-hidden="true"><use href="#cozystar-icon-weight"/></svg></span><span>Сколько занимает подготовка заказа?</span></span><svg class="cozystar-icon cozystar-summary__caret" aria-hidden="true"><use href="#cozystar-icon-caret"/></svg></summary><p class="cozystar-faq__text">Подготовка занимает 1–2 рабочих дня. Срок самой доставки зависит от региона и выбранной службы.</p></details>
+        <details class="cozystar-faq__item"><summary class="cozystar-faq__summary"><span class="cozystar-faq__summary-main"><span class="cozystar-faq__topic-icon"><svg class="cozystar-icon" aria-hidden="true"><use href="#cozystar-icon-truck"/></svg></span><span>Кто оплачивает доставку и как связаться?</span></span><svg class="cozystar-icon cozystar-summary__caret" aria-hidden="true"><use href="#cozystar-icon-caret"/></svg></summary><p class="cozystar-faq__text">Доставка через Ozon или СДЭК оплачивается покупателем по тарифу службы. Связаться с нами можно в Telegram; контакт MAX добавим после подключения.</p></details>
+      </div>
+    </section>
+
+    <section class="cozystar-section cozystar-testimonials" id="cozystar-reviews" aria-labelledby="cozystar-testimonials-title">
+      <div class="cozystar-page__container">
+        <h2 class="cozystar-section__title" id="cozystar-testimonials-title">Отзывы родителей</h2>
+        <div class="cozystar-testimonials__rating" aria-label="Пять звёзд"><span class="cozystar-testimonials__rating-stars">★★★★★</span><strong>Тёплые впечатления</strong></div>
+        <p class="cozystar-testimonials__disclaimer">Примеры оформления отзывов. После первых заказов замените их реальными сообщениями покупателей.</p>
+        <div class="cozystar-testimonials__track" data-cozystar-testimonials role="region" aria-label="Слайдер отзывов покупателей">
+          <div class="cozystar-testimonials__slide">
+          <article class="cozystar-testimonial"><span class="cozystar-testimonial__meta">Пример отзыва · Розовый</span><div class="cozystar-testimonial__stars" aria-label="5 из 5">★★★★★</div><h3 class="cozystar-testimonial__title">Мягкая и аккуратная</h3><p class="cozystar-testimonial__text">Звёздочка приятная на ощупь, вязка ровная. На рост 62 см села свободно, как и хотели.</p><p class="cozystar-testimonial__author">Анна · малышу 4 месяца</p></article>
+          <article class="cozystar-testimonial"><span class="cozystar-testimonial__meta">Пример отзыва · Голубой</span><div class="cozystar-testimonial__stars" aria-label="5 из 5">★★★★★</div><h3 class="cozystar-testimonial__title">Получился особенный подарок</h3><p class="cozystar-testimonial__text">Уточнили цвет и доставку в переписке, ответили спокойно и по делу. Подарок очень понравился.</p><p class="cozystar-testimonial__author">Мария · крёстная малыша</p></article>
+          <article class="cozystar-testimonial"><span class="cozystar-testimonial__meta">Пример отзыва · Розовый</span><div class="cozystar-testimonial__stars" aria-label="5 из 5">★★★★★</div><h3 class="cozystar-testimonial__title">Красиво смотрится на фото</h3><p class="cozystar-testimonial__text">Цвет нежный, форма необычная, при этом ребёнку удобно двигаться. Забрали в пункте Ozon.</p><p class="cozystar-testimonial__author">Елена · малышу 6 месяцев</p></article>
+          </div>
+          <div class="cozystar-testimonials__slide">
+          <article class="cozystar-testimonial"><span class="cozystar-testimonial__meta">Пример отзыва · Голубой</span><div class="cozystar-testimonial__stars" aria-label="5 из 5">★★★★★</div><h3 class="cozystar-testimonial__title">Свободная посадка</h3><p class="cozystar-testimonial__text">Не давит и не сковывает. Перед заказом отправила рост малыша, мне подсказали по посадке.</p><p class="cozystar-testimonial__author">Ольга · малышу 3 месяца</p></article>
+          <article class="cozystar-testimonial"><span class="cozystar-testimonial__meta">Пример отзыва · Розовый</span><div class="cozystar-testimonial__stars" aria-label="5 из 5">★★★★★</div><h3 class="cozystar-testimonial__title">После ухода всё в порядке</h3><p class="cozystar-testimonial__text">Постирала на деликатном режиме и сушила горизонтально. Форма сохранилась, пряжа осталась мягкой.</p><p class="cozystar-testimonial__author">Дарья · малышу 7 месяцев</p></article>
+          <article class="cozystar-testimonial"><span class="cozystar-testimonial__meta">Пример отзыва · Голубой</span><div class="cozystar-testimonial__stars" aria-label="5 из 5">★★★★★</div><h3 class="cozystar-testimonial__title">Без лишней суеты</h3><p class="cozystar-testimonial__text">Заказ согласовали в Telegram, через два рабочих дня отправили. Трек прислали сразу.</p><p class="cozystar-testimonial__author">Ирина · доставка СДЭК</p></article>
+          </div>
+        </div>
+        <div class="cozystar-testimonials__controls"><button class="cozystar-testimonials__control cozystar-testimonials__control--prev" type="button" aria-label="Предыдущий отзыв" data-cozystar-review-prev><svg class="cozystar-icon" aria-hidden="true"><use href="#cozystar-icon-arrow"/></svg></button><button class="cozystar-testimonials__control" type="button" aria-label="Следующий отзыв" data-cozystar-review-next><svg class="cozystar-icon" aria-hidden="true"><use href="#cozystar-icon-arrow"/></svg></button></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="cozystar-footer">
+    <div class="cozystar-page__container cozystar-footer__inner">
+      <p class="cozystar-footer__copy">© 2026 Cozy Star Baby. Все права защищены.</p>
+      <div class="cozystar-footer__contacts" aria-label="Контакты"><a class="cozystar-footer__contact" href="https://t.me/CHINA_BUYER7" target="_blank" rel="noopener noreferrer">Telegram: @CHINA_BUYER7</a><span class="cozystar-footer__contact" aria-disabled="true">MAX: контакт скоро</span></div>
+    </div>
+  </footer>
+  <aside class="cozystar-chat" aria-label="Онлайн-чат">
+    <div class="cozystar-chat__panel" data-cozystar-chat-panel hidden><strong>Мы на связи</strong><p>Напишите вопрос о размере, цвете или доставке.</p><a class="cozystar-chat__link" href="https://t.me/CHINA_BUYER7" target="_blank" rel="noopener noreferrer">Открыть Telegram</a><span class="cozystar-chat__link" aria-disabled="true">MAX — скоро</span></div>
+    <button class="cozystar-chat__toggle" type="button" data-cozystar-chat-toggle aria-expanded="false"><span aria-hidden="true">✦</span><span>Онлайн-чат</span></button>
+  </aside>
+</section>
+
+<script>
+(() => {
+  'use strict';
+
+  const selector = '[data-cozystar-component="product-page"]';
+
+  function init(root, index) {
+    if (root.dataset.cozystarInitialized === 'true') return;
+    root.dataset.cozystarInitialized = 'true';
+
+    const unique = 'cozystar-' + Date.now().toString(36) + '-' + index;
+    root.querySelectorAll('[data-cozystar-color]').forEach((input) => { input.name = unique + '-color'; });
+    root.querySelectorAll('[data-cozystar-delivery]').forEach((input) => { input.name = unique + '-delivery'; });
+    root.querySelectorAll('[data-cozystar-contact-method]').forEach((input) => { input.name = unique + '-contact'; });
+
+    const mainImage = root.querySelector('[data-cozystar-main-image]');
+    const thumbs = Array.from(root.querySelectorAll('[data-cozystar-thumb]'));
+    const dots = Array.from(root.querySelectorAll('[data-cozystar-gallery-dot]'));
+    const colors = Array.from(root.querySelectorAll('[data-cozystar-color]'));
+    const delivery = Array.from(root.querySelectorAll('[data-cozystar-delivery]'));
+    const contactMethods = Array.from(root.querySelectorAll('[data-cozystar-contact-method]'));
+    const telegramFields = root.querySelector('[data-cozystar-telegram-fields]');
+    const maxFields = root.querySelector('[data-cozystar-max-fields]');
+    const orderButton = root.querySelector('[data-cozystar-order]');
+    const orderStatus = root.querySelector('[data-cozystar-order-status]');
+    let galleryIndex = 0;
+
+    function showImage(nextIndex) {
+      if (!mainImage || !thumbs.length) return;
+      galleryIndex = (nextIndex + thumbs.length) % thumbs.length;
+      const button = thumbs[galleryIndex];
+      mainImage.src = button.dataset.src || mainImage.src;
+      mainImage.alt = button.dataset.alt || mainImage.alt;
+      thumbs.forEach((item) => item.setAttribute('aria-selected', String(item === button)));
+      dots.forEach((item, dotIndex) => item.setAttribute('aria-current', String(dotIndex === galleryIndex)));
+      const matchingColor = colors.find((item) => item.value === button.dataset.cozystarColorImage);
+      if (matchingColor) matchingColor.checked = true;
+    }
+
+    thumbs.forEach((button, thumbIndex) => button.addEventListener('click', () => showImage(thumbIndex)));
+    dots.forEach((button, dotIndex) => button.addEventListener('click', () => showImage(dotIndex)));
+    const previousImage = root.querySelector('[data-cozystar-gallery-prev]');
+    const nextImage = root.querySelector('[data-cozystar-gallery-next]');
+    if (previousImage) previousImage.addEventListener('click', () => showImage(galleryIndex - 1));
+    if (nextImage) nextImage.addEventListener('click', () => showImage(galleryIndex + 1));
+
+    const galleryStage = root.querySelector('.cozystar-gallery__main');
+    let touchStartX = 0;
+    if (galleryStage) {
+      galleryStage.addEventListener('touchstart', (event) => { touchStartX = event.changedTouches[0].clientX; }, { passive: true });
+      galleryStage.addEventListener('touchend', (event) => {
+        const delta = event.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(delta) > 45) showImage(galleryIndex + (delta < 0 ? 1 : -1));
+      }, { passive: true });
+    }
+
+    function selectedValue(items) {
+      const selected = items.find((item) => item.checked);
+      return selected ? selected.value : '';
+    }
+
+    function updateContactFields() {
+      const method = selectedValue(contactMethods) || 'Telegram';
+      if (telegramFields) telegramFields.hidden = method !== 'Telegram';
+      if (maxFields) maxFields.hidden = method !== 'MAX';
+    }
+
+    colors.forEach((input) => input.addEventListener('change', () => {
+      const imageIndex = thumbs.findIndex((item) => item.dataset.cozystarColorImage === input.value);
+      if (input.checked && imageIndex >= 0) showImage(imageIndex);
+    }));
+    contactMethods.forEach((input) => input.addEventListener('change', updateContactFields));
+    updateContactFields();
+    showImage(0);
+
+    function requiredInputs() {
+      const method = selectedValue(contactMethods) || 'Telegram';
+      return Array.from(root.querySelectorAll(method === 'Telegram' ? '[data-cozystar-telegram-login], [data-cozystar-telegram-phone]' : '[data-cozystar-max-phone]'));
+    }
+
+    function validateOrder() {
+      const fields = requiredInputs();
+      let firstInvalid = null;
+      fields.forEach((field) => {
+        const invalid = !field.value.trim();
+        field.setAttribute('aria-invalid', String(invalid));
+        if (invalid && !firstInvalid) firstInvalid = field;
+      });
+      if (firstInvalid) {
+        if (orderStatus) orderStatus.textContent = 'Заполните контактные данные, чтобы мы могли подтвердить заказ.';
+        firstInvalid.focus();
+        return false;
+      }
+      return true;
+    }
+
+    function orderSummary() {
+      const method = selectedValue(contactMethods) || 'Telegram';
+      const telegram = root.querySelector('[data-cozystar-telegram-login]');
+      const telegramPhone = root.querySelector('[data-cozystar-telegram-phone]');
+      const maxPhone = root.querySelector('[data-cozystar-max-phone]');
+      const contact = method === 'Telegram'
+        ? 'Telegram: ' + telegram.value.trim() + '; телефон: ' + telegramPhone.value.trim()
+        : 'MAX, телефон: ' + maxPhone.value.trim();
+      return [
+        'Здравствуйте! Хочу оформить заказ.',
+        'Товар: вязаный аксессуар «Звёздочка»',
+        'Комплект: 1 звёздочка + подарок',
+        'Цена: 4 990 ₽',
+        'Цвет: ' + (selectedValue(colors) || 'Розовый'),
+        'Размер: One Size, 0–8 месяцев, рост 50–68 см',
+        'Доставка: ' + (selectedValue(delivery) || 'Ozon') + ' (оплачивается покупателем)',
+        'Связь: ' + contact
+      ].join('\n');
+    }
+
+    if (orderButton) orderButton.addEventListener('click', async () => {
+      if (!validateOrder()) return;
+      const summary = orderSummary();
+      let copied = false;
+      try {
+        await navigator.clipboard.writeText(summary);
+        copied = true;
+      } catch (error) {
+        copied = false;
+      }
+      if (orderStatus) orderStatus.textContent = copied
+        ? 'Текст заказа скопирован. Вставьте его в открывшийся чат Telegram.'
+        : 'Скопируйте данные и отправьте их в Telegram:\n' + summary;
+      window.open('https://t.me/CHINA_BUYER7', '_blank', 'noopener,noreferrer');
+    });
+
+    root.querySelectorAll('input[data-cozystar-telegram-login], input[data-cozystar-telegram-phone], input[data-cozystar-max-phone]').forEach((input) => {
+      input.addEventListener('input', () => input.removeAttribute('aria-invalid'));
+    });
+
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const guaranteeCard = root.querySelector('.cozystar-guarantee__card');
+    if (guaranteeCard) {
+      if ('IntersectionObserver' in window && !reducedMotion) {
+        const guaranteeObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          });
+        }, { threshold: 0.35 });
+
+        guaranteeObserver.observe(guaranteeCard);
+      } else {
+        guaranteeCard.classList.add('is-visible');
+      }
+    }
+    root.querySelectorAll('.cozystar-product-details__item, .cozystar-faq__item').forEach((details) => {
+      const summary = details.querySelector('summary');
+      if (!summary || details.dataset.cozystarSmoothDetails === 'true') return;
+      details.dataset.cozystarSmoothDetails = 'true';
+
+      summary.addEventListener('click', (event) => {
+        event.preventDefault();
+        if (details.dataset.cozystarAnimating === 'true') return;
+
+        const opening = !details.open;
+        if (reducedMotion || typeof details.animate !== 'function') {
+          details.open = opening;
+          details.classList.remove('cozystar-details--closing');
+          return;
+        }
+
+        const startHeight = details.offsetHeight;
+        if (opening) {
+          details.open = true;
+          details.classList.remove('cozystar-details--closing');
+        } else {
+          details.classList.add('cozystar-details--closing');
+        }
+
+        const endHeight = opening ? details.scrollHeight : summary.offsetHeight;
+        details.dataset.cozystarAnimating = 'true';
+        details.style.overflow = 'hidden';
+
+        const animation = details.animate(
+          { height: [startHeight + 'px', endHeight + 'px'] },
+          { duration: 320, easing: 'cubic-bezier(.22, 1, .36, 1)' }
+        );
+
+        animation.addEventListener('finish', () => {
+          if (!opening) details.open = false;
+          details.classList.remove('cozystar-details--closing');
+          details.style.removeProperty('overflow');
+          delete details.dataset.cozystarAnimating;
+        }, { once: true });
+
+        animation.addEventListener('cancel', () => {
+          details.classList.remove('cozystar-details--closing');
+          details.style.removeProperty('overflow');
+          delete details.dataset.cozystarAnimating;
+        }, { once: true });
+      });
+    });
+
+    const reviewTrack = root.querySelector('[data-cozystar-testimonials]');
+    const prev = root.querySelector('[data-cozystar-review-prev]');
+    const next = root.querySelector('[data-cozystar-review-next]');
+    const scrollReviews = (direction) => {
+      if (!reviewTrack) return;
+      reviewTrack.scrollBy({ left: direction * reviewTrack.clientWidth, behavior: 'smooth' });
+    };
+    if (prev) prev.addEventListener('click', () => scrollReviews(-1));
+    if (next) next.addEventListener('click', () => scrollReviews(1));
+
+    const chatToggle = root.querySelector('[data-cozystar-chat-toggle]');
+    const chatPanel = root.querySelector('[data-cozystar-chat-panel]');
+    const closeChat = () => {
+      if (!chatToggle || !chatPanel) return;
+      chatPanel.hidden = true;
+      chatToggle.setAttribute('aria-expanded', 'false');
+    };
+    if (chatToggle && chatPanel) {
+      chatToggle.addEventListener('click', (event) => {
+        event.stopPropagation();
+        chatPanel.hidden = !chatPanel.hidden;
+        chatToggle.setAttribute('aria-expanded', String(!chatPanel.hidden));
+      });
+      chatPanel.addEventListener('click', (event) => event.stopPropagation());
+      document.addEventListener('click', closeChat);
+      document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeChat(); });
+    }
+    root.querySelectorAll('[aria-disabled="true"]').forEach((item) => {
+      item.addEventListener('click', (event) => event.preventDefault());
+    });
+
+    let remaining = 5 * 3600 + 42 * 60 + 44;
+    const hours = root.querySelector('[data-cozystar-hours]');
+    const minutes = root.querySelector('[data-cozystar-minutes]');
+    const seconds = root.querySelector('[data-cozystar-seconds]');
+    const renderCountdown = () => {
+      if (!root.isConnected) {
+        window.clearInterval(timer);
+        return;
+      }
+      const h = Math.floor(remaining / 3600);
+      const m = Math.floor((remaining % 3600) / 60);
+      const s = remaining % 60;
+      if (hours) hours.textContent = String(h).padStart(2, '0');
+      if (minutes) minutes.textContent = String(m).padStart(2, '0');
+      if (seconds) seconds.textContent = String(s).padStart(2, '0');
+      remaining = remaining > 0 ? remaining - 1 : 6 * 3600;
+    };
+    renderCountdown();
+    const timer = window.setInterval(renderCountdown, 1000);
+  }
+
+  function initAll(scope = document) {
+    scope.querySelectorAll(selector).forEach(init);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => initAll(), { once: true });
+  } else {
+    initAll();
+  }
+})();
+</script>

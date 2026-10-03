@@ -1,0 +1,9 @@
+{
+  "repository": "https://github.com/kot3505/cozy-star-tilda",
+  "assets": {
+    "marqueeIcons": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/marquee-icons.png",
+    "detailIcons": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/detail-icons.png",
+    "protectedStar3d": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/protected-star-3d.png",
+    "oneSizeGuideRu": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/one-size-guide-ru.png"
+  }
+}
