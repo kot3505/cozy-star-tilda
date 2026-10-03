@@ -4,6 +4,10 @@
     "marqueeIcons": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/marquee-icons.png",
     "detailIcons": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/detail-icons.png",
     "protectedStar3d": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/protected-star-3d.png",
-    "oneSizeGuideRu": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/one-size-guide-ru.png"
+    "oneSizeGuideRu": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/one-size-guide-ru.png",
+    "galleryColors": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/gallery-colors.png",
+    "galleryPink": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/gallery-pink.png",
+    "galleryBlue": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/gallery-blue.png",
+    "galleryBabyBlue": "https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/gallery-baby-blue.png"
   }
 }

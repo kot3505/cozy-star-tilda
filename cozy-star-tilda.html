@@ -2275,8 +2275,33 @@
 
 <style data-cozystar-redesign="true">
 .cozystar-page span {
-  font-family: var(--t-text-font, inherit);
+  font-family: var(--t-text-font, "Montserrat", Arial, sans-serif);
+  font-weight: 500;
 }
+
+#cozystar-product-title,
+#cozystar-benefits-title,
+#cozystar-faq-title,
+#cozystar-testimonials-title,
+#cozystar-guarantee-title {
+  font-weight: 800;
+  text-transform: none;
+}
+
+.cozystar-buybox__button { font-weight: 600; }
+.cozystar-choice__text,
+.cozystar-delivery__name,
+.cozystar-product-details__summary,
+.cozystar-section-intro__eyebrow { font-weight: 700; }
+.cozystar-guarantee__points,
+.cozystar-sizeguide__height { font-weight: 600; }
+.cozystar-single-offer__title,
+.cozystar-single-offer__price,
+.cozystar-contact__legend,
+.cozystar-testimonial__title { font-weight: 800; }
+.cozystar-testimonial__text,
+.cozystar-testimonial__author,
+.cozystar-faq__text { font-weight: 500; }
 
 .cozystar-marquee__group {
   gap: 26px;
@@ -2807,14 +2832,16 @@
       <div class="cozystar-page__container cozystar-product__grid">
         <div class="cozystar-gallery" data-cozystar-gallery>
           <div class="cozystar-gallery__stage">
-            <img class="cozystar-gallery__main" data-cozystar-main-image src="https://cozystarbaby.com/cdn/shop/files/hf_20260727_065315_3d84192b-5c21-4d43-8ba3-3da3aa19fccb.png?v=1785135345&amp;width=1946" alt="Розовая вязаная Звёздочка" width="1200" height="1200">
+            <img class="cozystar-gallery__main" data-cozystar-main-image src="https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/gallery-colors.png" alt="Розовая и голубая вязаные Звёздочки" width="1200" height="1200">
             <button class="cozystar-gallery__arrow cozystar-gallery__arrow--prev" type="button" aria-label="Предыдущий цвет" data-cozystar-gallery-prev><svg class="cozystar-icon" aria-hidden="true"><use href="#cozystar-icon-arrow"/></svg></button>
             <button class="cozystar-gallery__arrow cozystar-gallery__arrow--next" type="button" aria-label="Следующий цвет" data-cozystar-gallery-next><svg class="cozystar-icon" aria-hidden="true"><use href="#cozystar-icon-arrow"/></svg></button>
-            <div class="cozystar-gallery__dots" aria-label="Цвет товара"><button class="cozystar-gallery__dot" type="button" aria-label="Розовый" aria-current="true" data-cozystar-gallery-dot="0"></button><button class="cozystar-gallery__dot" type="button" aria-label="Голубой" aria-current="false" data-cozystar-gallery-dot="1"></button></div>
+            <div class="cozystar-gallery__dots" aria-label="Фотографии товара"><button class="cozystar-gallery__dot" type="button" aria-label="Все цвета" aria-current="true" data-cozystar-gallery-dot="0"></button><button class="cozystar-gallery__dot" type="button" aria-label="Розовый цвет" aria-current="false" data-cozystar-gallery-dot="1"></button><button class="cozystar-gallery__dot" type="button" aria-label="Голубой цвет" aria-current="false" data-cozystar-gallery-dot="2"></button><button class="cozystar-gallery__dot" type="button" aria-label="Звёздочка на ребёнке" aria-current="false" data-cozystar-gallery-dot="3"></button></div>
           </div>
-          <div class="cozystar-gallery__thumbs" role="listbox" aria-label="Два цвета Звёздочки">
-            <button class="cozystar-gallery__thumb" type="button" aria-selected="true" data-cozystar-thumb data-cozystar-color-image="Розовый" data-src="https://cozystarbaby.com/cdn/shop/files/hf_20260727_065315_3d84192b-5c21-4d43-8ba3-3da3aa19fccb.png?v=1785135345&amp;width=1946" data-alt="Розовая вязаная Звёздочка"><img src="https://cozystarbaby.com/cdn/shop/files/hf_20260727_065315_3d84192b-5c21-4d43-8ba3-3da3aa19fccb.png?v=1785135345&amp;width=1946" alt="Розовый цвет" width="1200" height="1200"></button>
-            <button class="cozystar-gallery__thumb" type="button" aria-selected="false" data-cozystar-thumb data-cozystar-color-image="Голубой" data-src="https://cozystarbaby.com/cdn/shop/files/hf_20260727_065418_ed68dfc1-459b-4299-bbad-beaebca1d9f8.png?v=1785135345&amp;width=1946" data-alt="Голубая вязаная Звёздочка"><img src="https://cozystarbaby.com/cdn/shop/files/hf_20260727_065418_ed68dfc1-459b-4299-bbad-beaebca1d9f8.png?v=1785135345&amp;width=1946" alt="Голубой цвет" width="1200" height="1200"></button>
+          <div class="cozystar-gallery__thumbs" role="listbox" aria-label="Фотографии Звёздочки">
+            <button class="cozystar-gallery__thumb" type="button" aria-selected="true" data-cozystar-thumb data-src="https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/gallery-colors.png" data-alt="Розовая и голубая вязаные Звёздочки"><img src="https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/gallery-colors.png" alt="Все цвета" width="1200" height="1200"></button>
+            <button class="cozystar-gallery__thumb" type="button" aria-selected="false" data-cozystar-thumb data-cozystar-color-image="Розовый" data-src="https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/gallery-pink.png" data-alt="Розовая вязаная Звёздочка"><img src="https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/gallery-pink.png" alt="Розовый цвет" width="1200" height="1200"></button>
+            <button class="cozystar-gallery__thumb" type="button" aria-selected="false" data-cozystar-thumb data-cozystar-color-image="Голубой" data-src="https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/gallery-blue.png" data-alt="Голубая вязаная Звёздочка"><img src="https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/gallery-blue.png" alt="Голубой цвет" width="1200" height="1200"></button>
+            <button class="cozystar-gallery__thumb" type="button" aria-selected="false" data-cozystar-thumb data-src="https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/gallery-baby-blue.png" data-alt="Ребёнок в голубой вязаной Звёздочке"><img src="https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/gallery-baby-blue.png" alt="Звёздочка на ребёнке" width="1200" height="1200"></button>
           </div>
         </div>
 
