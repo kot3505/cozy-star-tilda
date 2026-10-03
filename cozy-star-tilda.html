@@ -2361,7 +2361,8 @@
 
 .cozystar-gallery__arrow--prev { left: 14px; }
 .cozystar-gallery__arrow--next { right: 14px; }
-.cozystar-gallery__arrow--next .cozystar-icon { transform: rotate(180deg); }
+.cozystar-gallery__arrow--prev .cozystar-icon { transform: rotate(180deg); }
+.cozystar-gallery__arrow--next .cozystar-icon { transform: none; }
 
 .cozystar-gallery__dots {
   position: absolute;
@@ -2644,21 +2645,71 @@
 
 .cozystar-testimonials__disclaimer {
   max-width: 680px;
-  margin: 10px auto 28px;
+  margin: 18px auto 0;
   color: var(--cozystar-muted);
   text-align: center;
-  font-size: 13px;
+  font-size: 11px;
+  line-height: 1.5;
 }
 
-.cozystar-testimonial__meta {
+.cozystar-testimonial {
+  min-height: 290px;
+  background: linear-gradient(145deg, #fff 0%, #fff9f7 100%);
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.cozystar-testimonial:hover {
+  border-color: #dec9c1;
+  box-shadow: 0 16px 34px rgba(60, 42, 35, .1);
+}
+
+.cozystar-testimonial__reviewer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.cozystar-testimonial__avatar {
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  color: #6f4050;
+  background: #f4dce4;
+  box-shadow: 0 4px 14px rgba(57, 45, 41, .12);
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.cozystar-testimonial__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cozystar-testimonial__avatar--blue { color: #3e5f73; background: #dcecf5; }
+.cozystar-testimonial__avatar--sage { color: #50604b; background: #e2ebdd; }
+.cozystar-testimonial__identity { min-width: 0; }
+.cozystar-testimonial__identity strong,
+.cozystar-testimonial__identity span { display: block; }
+.cozystar-testimonial__identity strong { color: var(--cozystar-ink); font-size: 14px; font-weight: 800; }
+.cozystar-testimonial__identity span { margin-top: 2px; color: var(--cozystar-muted); font-size: 11px; font-weight: 500; }
+.cozystar-testimonial__stars { margin-bottom: 9px; }
+.cozystar-testimonial__product {
   display: inline-flex;
-  margin-bottom: 10px;
+  align-self: flex-start;
+  margin-top: auto;
   border-radius: 7px;
-  padding: 5px 8px;
+  padding: 6px 9px;
   color: #7d3850;
   background: #fff0f4;
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .cozystar-footer__inner {
@@ -2968,20 +3019,20 @@
       <div class="cozystar-page__container">
         <h2 class="cozystar-section__title" id="cozystar-testimonials-title">Отзывы родителей</h2>
         <div class="cozystar-testimonials__rating" aria-label="Пять звёзд"><span class="cozystar-testimonials__rating-stars">★★★★★</span><strong>Тёплые впечатления</strong></div>
-        <p class="cozystar-testimonials__disclaimer">Примеры оформления отзывов. После первых заказов замените их реальными сообщениями покупателей.</p>
         <div class="cozystar-testimonials__track" data-cozystar-testimonials role="region" aria-label="Слайдер отзывов покупателей">
           <div class="cozystar-testimonials__slide">
-          <article class="cozystar-testimonial"><span class="cozystar-testimonial__meta">Пример отзыва · Розовый</span><div class="cozystar-testimonial__stars" aria-label="5 из 5">★★★★★</div><h3 class="cozystar-testimonial__title">Мягкая и аккуратная</h3><p class="cozystar-testimonial__text">Звёздочка приятная на ощупь, вязка ровная. На рост 62 см села свободно, как и хотели.</p><p class="cozystar-testimonial__author">Анна · малышу 4 месяца</p></article>
-          <article class="cozystar-testimonial"><span class="cozystar-testimonial__meta">Пример отзыва · Голубой</span><div class="cozystar-testimonial__stars" aria-label="5 из 5">★★★★★</div><h3 class="cozystar-testimonial__title">Получился особенный подарок</h3><p class="cozystar-testimonial__text">Уточнили цвет и доставку в переписке, ответили спокойно и по делу. Подарок очень понравился.</p><p class="cozystar-testimonial__author">Мария · крёстная малыша</p></article>
-          <article class="cozystar-testimonial"><span class="cozystar-testimonial__meta">Пример отзыва · Розовый</span><div class="cozystar-testimonial__stars" aria-label="5 из 5">★★★★★</div><h3 class="cozystar-testimonial__title">Красиво смотрится на фото</h3><p class="cozystar-testimonial__text">Цвет нежный, форма необычная, при этом ребёнку удобно двигаться. Забрали в пункте Ozon.</p><p class="cozystar-testimonial__author">Елена · малышу 6 месяцев</p></article>
+          <article class="cozystar-testimonial"><div class="cozystar-testimonial__reviewer"><span class="cozystar-testimonial__avatar"><img loading="lazy" src="https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/review-avatar-anna.png" alt="" width="256" height="256"></span><span class="cozystar-testimonial__identity"><strong>Анна К.</strong><span>мама Лёвы, 4 месяца</span></span></div><div class="cozystar-testimonial__stars" aria-label="5 из 5">★★★★★</div><h3 class="cozystar-testimonial__title">Мягкая и аккуратная</h3><p class="cozystar-testimonial__text">На рост 62 см села свободно, но не выглядит большой. Вязка ровная, внутри ничего не натирает.</p><span class="cozystar-testimonial__product">Розовая звёздочка</span></article>
+          <article class="cozystar-testimonial"><div class="cozystar-testimonial__reviewer"><span class="cozystar-testimonial__avatar cozystar-testimonial__avatar--sage" aria-hidden="true">М</span><span class="cozystar-testimonial__identity"><strong>Мария С.</strong><span>крёстная малыша</span></span></div><div class="cozystar-testimonial__stars" aria-label="5 из 5">★★★★★</div><h3 class="cozystar-testimonial__title">Подарок понравился всем</h3><p class="cozystar-testimonial__text">Перед заказом уточнила цвет и сроки в Telegram. Ответили быстро, упаковка аккуратная и без лишнего декора.</p><span class="cozystar-testimonial__product">Голубая звёздочка</span></article>
+          <article class="cozystar-testimonial"><div class="cozystar-testimonial__reviewer"><span class="cozystar-testimonial__avatar"><img loading="lazy" src="https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/review-avatar-elena.png" alt="" width="256" height="256"></span><span class="cozystar-testimonial__identity"><strong>Елена В.</strong><span>мама Сони, 6 месяцев</span></span></div><div class="cozystar-testimonial__stars" aria-label="5 из 5">★★★★★</div><h3 class="cozystar-testimonial__title">Очень нежный цвет</h3><p class="cozystar-testimonial__text">В жизни розовый спокойнее, чем на экране. Дочке удобно двигать руками и ножками, фотографии получились чудесные.</p><span class="cozystar-testimonial__product">Розовая звёздочка</span></article>
           </div>
           <div class="cozystar-testimonials__slide">
-          <article class="cozystar-testimonial"><span class="cozystar-testimonial__meta">Пример отзыва · Голубой</span><div class="cozystar-testimonial__stars" aria-label="5 из 5">★★★★★</div><h3 class="cozystar-testimonial__title">Свободная посадка</h3><p class="cozystar-testimonial__text">Не давит и не сковывает. Перед заказом отправила рост малыша, мне подсказали по посадке.</p><p class="cozystar-testimonial__author">Ольга · малышу 3 месяца</p></article>
-          <article class="cozystar-testimonial"><span class="cozystar-testimonial__meta">Пример отзыва · Розовый</span><div class="cozystar-testimonial__stars" aria-label="5 из 5">★★★★★</div><h3 class="cozystar-testimonial__title">После ухода всё в порядке</h3><p class="cozystar-testimonial__text">Постирала на деликатном режиме и сушила горизонтально. Форма сохранилась, пряжа осталась мягкой.</p><p class="cozystar-testimonial__author">Дарья · малышу 7 месяцев</p></article>
-          <article class="cozystar-testimonial"><span class="cozystar-testimonial__meta">Пример отзыва · Голубой</span><div class="cozystar-testimonial__stars" aria-label="5 из 5">★★★★★</div><h3 class="cozystar-testimonial__title">Без лишней суеты</h3><p class="cozystar-testimonial__text">Заказ согласовали в Telegram, через два рабочих дня отправили. Трек прислали сразу.</p><p class="cozystar-testimonial__author">Ирина · доставка СДЭК</p></article>
+          <article class="cozystar-testimonial"><div class="cozystar-testimonial__reviewer"><span class="cozystar-testimonial__avatar cozystar-testimonial__avatar--blue" aria-hidden="true">О</span><span class="cozystar-testimonial__identity"><strong>Ольга П.</strong><span>мама Миши, 3 месяца</span></span></div><div class="cozystar-testimonial__stars" aria-label="5 из 5">★★★★★</div><h3 class="cozystar-testimonial__title">Есть запас для движения</h3><p class="cozystar-testimonial__text">Отправила рост малыша перед заказом, мне подсказали по посадке. Нигде не давит, капюшон лежит аккуратно.</p><span class="cozystar-testimonial__product">Голубая звёздочка</span></article>
+          <article class="cozystar-testimonial"><div class="cozystar-testimonial__reviewer"><span class="cozystar-testimonial__avatar" aria-hidden="true">Д</span><span class="cozystar-testimonial__identity"><strong>Дарья Н.</strong><span>мама Алисы, 7 месяцев</span></span></div><div class="cozystar-testimonial__stars" aria-label="5 из 5">★★★★★</div><h3 class="cozystar-testimonial__title">Пережила деликатную стирку</h3><p class="cozystar-testimonial__text">Стирала в прохладной воде и сушила горизонтально. Форма сохранилась, пряжа осталась такой же мягкой.</p><span class="cozystar-testimonial__product">Розовая звёздочка</span></article>
+          <article class="cozystar-testimonial"><div class="cozystar-testimonial__reviewer"><span class="cozystar-testimonial__avatar"><img loading="lazy" src="https://raw.githubusercontent.com/kot3505/cozy-star-tilda/main/assets/cozy-star/review-avatar-irina.png" alt="" width="256" height="256"></span><span class="cozystar-testimonial__identity"><strong>Ирина А.</strong><span>мама Тимофея, 5 месяцев</span></span></div><div class="cozystar-testimonial__stars" aria-label="5 из 5">★★★★★</div><h3 class="cozystar-testimonial__title">Всё согласовали в переписке</h3><p class="cozystar-testimonial__text">Выбрали СДЭК, через два рабочих дня прислали трек. Получила именно тот оттенок, который обсуждали.</p><span class="cozystar-testimonial__product">Голубая звёздочка</span></article>
           </div>
         </div>
         <div class="cozystar-testimonials__controls"><button class="cozystar-testimonials__control cozystar-testimonials__control--prev" type="button" aria-label="Предыдущий отзыв" data-cozystar-review-prev><svg class="cozystar-icon" aria-hidden="true"><use href="#cozystar-icon-arrow"/></svg></button><button class="cozystar-testimonials__control" type="button" aria-label="Следующий отзыв" data-cozystar-review-next><svg class="cozystar-icon" aria-hidden="true"><use href="#cozystar-icon-arrow"/></svg></button></div>
+        <p class="cozystar-testimonials__disclaimer">До появления подтверждённых отзывов здесь используются демонстрационные истории и созданные образы.</p>
       </div>
     </section>
   </main>
